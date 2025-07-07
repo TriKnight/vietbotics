@@ -51,7 +51,10 @@ const Hero = () => {
                   </h1>
                 </div>
                     <p className="text-4xl sm:text-5xl font-bold  bg-clip-text text-transparent bg-gradient-to-b from-yellow-500 to-white-100  text-center">
-                    Embodied AI định hình tương lai ngành Logistics
+                    Embodied AI định hình
+                    </p>
+                    <p className="text-4xl sm:text-5xl font-bold  bg-clip-text text-transparent bg-gradient-to-b from-yellow-500 to-white-100  text-center">
+                     tương lai ngành Logistics
                     </p>
                    
                     {/* <TextGenerateEffect
@@ -305,12 +308,14 @@ const VisionContent = () => (
       </span>{" "}
       hệ thống tiên tiến của chúng tôi sử dụng công nghệ thị giác máy tính và AI hiện đại để giúp robot nhận biết và tương tác thông minh với môi trường xung quanh. Quá trình bắt đầu với việc quét 3D độ phân giải cao, tạo ra bản sao kỹ thuật số chi tiết của không gian làm việc. Các thuật toán định vị tiên tiến sau đó xác định các vật thể tối ưu để thao tác, tính đến các mối quan hệ không gian và khả năng va chạm.
     </p>
+
     <p className="text-neutral-600 text-base md:text-2xl font-sans max-w-3xl mx-auto">
       <span className="font-bold text-neutral-700">
         Nhiều chiến lược cầm nắm
       </span>{" "}
       AI đánh giá nhiều chiến lược cầm nắm khác nhau, mô phỏng kết quả để xác định phương pháp hiệu quả và an toàn nhất. Lập kế hoạch đường đi tinh vi tối ưu hóa quỹ đạo robot, tránh chướng ngại vật đồng thời tăng hiệu suất. Thông qua học hỏi và thích nghi liên tục, hệ thống cải thiện hiểu biết về thế giới vật lý, nâng cao hiệu suất theo thời gian.
     </p>
+
     <p className="text-neutral-600 text-base md:text-2xl font-sans max-w-3xl mx-auto">
       <span className="font-bold text-neutral-700">
         Kết hợp nhận thức, suy luận và hành động

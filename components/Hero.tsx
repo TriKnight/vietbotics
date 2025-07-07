@@ -240,7 +240,7 @@ function Navbar({ className }: { className?: string }) {
             className="flex items-center space-x-2 p-1 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-md transition"
           >
             <Image
-              src={`/logos/${currentLang}.svg`}
+              src={`/logos/${currentLang}.png`}
               alt={currentLang === "en" ? "EN" : "VN"}
               width={24}
               height={24}

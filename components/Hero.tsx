@@ -111,7 +111,7 @@ const Hero = () => {
             <InfiniteMovingCards
               items={partnerLogos}
               direction="left"
-              speed="slow"
+              speed="normal"
             />
           </div>
           </div>

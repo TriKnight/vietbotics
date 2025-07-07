@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Boxes } from "./ui/BackGroundBox";
-import { cn } from "@/utils/cn";
 
 const BackGroundBoxes = () => {
   return (

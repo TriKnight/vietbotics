@@ -1,36 +1,36 @@
-// Input component extends from shadcnui - https://ui.shadcn.com/docs/components/input
 "use client";
+
 import * as React from "react";
 import { cn } from "@/utils/cn";
 import { useMotionTemplate, useMotionValue, motion } from "motion/react";
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
-
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
-    const radius = 100; // change this to increase the rdaius of the hover effect
+// No empty interface used here to avoid ESLint warning
+const Input = React.forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>>(
+  ({ className, type = "text", ...props }, ref) => {
+    const radius = 100;
     const [visible, setVisible] = React.useState(false);
 
-    let mouseX = useMotionValue(0);
-    let mouseY = useMotionValue(0);
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
 
-    function handleMouseMove({ currentTarget, clientX, clientY }: any) {
-      let { left, top } = currentTarget.getBoundingClientRect();
-
+    // Properly typed mouse move event handler
+    function handleMouseMove(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+      const { currentTarget, clientX, clientY } = e;
+      const { left, top } = currentTarget.getBoundingClientRect();
       mouseX.set(clientX - left);
       mouseY.set(clientY - top);
     }
+
     return (
       <motion.div
         style={{
           background: useMotionTemplate`
-        radial-gradient(
-          ${visible ? radius + "px" : "0px"} circle at ${mouseX}px ${mouseY}px,
-          #3b82f6,
-          transparent 80%
-        )
-      `,
+            radial-gradient(
+              ${visible ? radius + "px" : "0px"} circle at ${mouseX}px ${mouseY}px,
+              #3b82f6,
+              transparent 80%
+            )
+          `,
         }}
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setVisible(true)}
@@ -39,25 +39,26 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       >
         <input
           type={type}
-       className={cn(
+          className={cn(
             `shadow-input dark:placeholder-text-neutral-600 flex h-10 w-full rounded-md border-none 
-            bg-gray-200 text-black
-            px-3 py-2 text-sm transition duration-400 group-hover/input:shadow-none 
-            file:border-0 file:bg-transparent file:text-sm file:font-medium 
-            placeholder:text-neutral-200 
-            focus-visible:ring-[2px] focus-visible:ring-yellow-400 focus-visible:outline-none 
-            disabled:cursor-not-allowed disabled:opacity-50 
-            dark:bg-yellow-900 dark:text-white dark:shadow-[0px_0px_1px_1px_#404040] 
-            dark:focus-visible:ring-yellow-500`,
+             bg-gray-200 text-black
+             px-3 py-2 text-sm transition duration-400 group-hover/input:shadow-none 
+             file:border-0 file:bg-transparent file:text-sm file:font-medium 
+             placeholder:text-neutral-200 
+             focus-visible:ring-[2px] focus-visible:ring-yellow-400 focus-visible:outline-none 
+             disabled:cursor-not-allowed disabled:opacity-50 
+             dark:bg-yellow-900 dark:text-white dark:shadow-[0px_0px_1px_1px_#404040] 
+             dark:focus-visible:ring-yellow-500`,
             className
-            )}
+          )}
           ref={ref}
           {...props}
         />
       </motion.div>
     );
-  },
+  }
 );
+
 Input.displayName = "Input";
 
 export { Input };

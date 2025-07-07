@@ -2,16 +2,9 @@
 "use client";
 import * as React from "react";
 import { cn } from "@/utils/cn";
-import { useMotionTemplate, useMotionValue, motion } from "motion/react";
 import { Label } from "./label";
 import { Input } from "./input";
 
-import {
-  IconBrandGithub,
-  IconBrandGoogle,
-  IconBrandOnlyfans,
-} from "@tabler/icons-react";
- 
 export function SignupFormDemo() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

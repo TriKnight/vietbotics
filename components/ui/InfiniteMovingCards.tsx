@@ -1,5 +1,7 @@
 "use client";
+
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { cn } from "@/utils/cn";
 
 export const InfiniteMovingCards = ({
@@ -10,7 +12,7 @@ export const InfiniteMovingCards = ({
   className,
 }: {
   items: {
-    quote: string; // now used as image URL
+    quote: string; // used as image URL
     name?: string;
     title?: string;
   }[];
@@ -31,26 +33,21 @@ export const InfiniteMovingCards = ({
         const clone = item.cloneNode(true);
         scrollerRef.current!.appendChild(clone);
       });
-      getDirection();
-      getSpeed();
+
+      // Set direction
+      containerRef.current.style.setProperty(
+        "--animation-direction",
+        direction === "left" ? "forwards" : "reverse"
+      );
+
+      // Set speed
+      const duration =
+        speed === "fast" ? "20s" : speed === "normal" ? "40s" : "80s";
+      containerRef.current.style.setProperty("--animation-duration", duration);
+
       setStart(true);
     }
-  }, []);
-
-  const getDirection = () => {
-    if (!containerRef.current) return;
-    containerRef.current.style.setProperty(
-      "--animation-direction",
-      direction === "left" ? "forwards" : "reverse"
-    );
-  };
-
-  const getSpeed = () => {
-    if (!containerRef.current) return;
-    const duration =
-      speed === "fast" ? "20s" : speed === "normal" ? "40s" : "80s";
-    containerRef.current.style.setProperty("--animation-duration", duration);
-  };
+  }, [direction, speed]);
 
   return (
     <div
@@ -71,12 +68,14 @@ export const InfiniteMovingCards = ({
         {items.map((item, idx) => (
           <li
             key={idx}
-              className="relative flex flex-col items-center justify-center w-[280px] h-[350px] max-w-full shrink-0 rounded-md border border-zinc-200 bg-white dark:bg-zinc-900 p-4 text-center"
+            className="relative flex flex-col items-center justify-center w-[280px] h-[350px] max-w-full shrink-0 rounded-md border border-zinc-200 bg-white dark:bg-zinc-900 p-4 text-center"
           >
-             <img
+            <Image
               src={item.quote}
               alt={item.name || `logo-${idx}`}
-              className="h-21 w-21 object-contain mb-3"
+              width={84}
+              height={84}
+              className="object-contain mb-3"
             />
             {item.name && (
               <p className="text-sm font-medium text-neutral-800 dark:text-white">

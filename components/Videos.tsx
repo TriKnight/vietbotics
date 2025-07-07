@@ -1,6 +1,4 @@
-import Video from 'next-video';
-import BackgroundVideo from 'next-video/background-video';
-import myVideo from '/videos/intro.mp4'; 
+
  
 const InfoVideo = () => {
   return (

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Spotlight } from './ui/Spotlight';
-import { TextGenerateEffect } from './ui/TextGenerateEffect';
 import { MagicButton } from './ui/MagicButton';
 
 const FooterVN: React.FC = () => {

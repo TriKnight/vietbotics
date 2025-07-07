@@ -5,8 +5,11 @@ import { match as matchLocale } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
 
 function getLocale(request: NextRequest) {
-  const headers = {};
-  request.headers.forEach((v, k) => headers[k] = v);
+  const headers: Record<string, string> = {};
+  request.headers.forEach((value, key) => {
+    headers[key] = value;
+  });
+
   return matchLocale(
     new Negotiator({ headers }).languages(),
     i18n.locales,
@@ -17,11 +20,19 @@ function getLocale(request: NextRequest) {
 export function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname;
 
-  if (pathname.startsWith('/api') || pathname.includes('/_next') || /\.(.*)$/.test(pathname)) {
+  if (
+    pathname.startsWith('/api') ||
+    pathname.includes('/_next') ||
+    /\.(.*)$/.test(pathname)
+  ) {
     return NextResponse.next();
   }
 
-  const pathnameHasLocale = i18n.locales.some(locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`);
+  const pathnameHasLocale = i18n.locales.some(
+    (locale) =>
+      pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+  );
+
   if (!pathnameHasLocale) {
     const locale = getLocale(req);
     return NextResponse.rewrite(new URL(`/${locale}${pathname}`, req.url));
@@ -29,5 +40,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|.*\\..*).*)']
+  matcher: ['/((?!api|_next/static|_next/image|.*\\..*).*)'],
 };

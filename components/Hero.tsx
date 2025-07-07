@@ -1,31 +1,24 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useId } from "react";
 import { Spotlight } from './ui/Spotlight';
 import { Carousel, Card } from "./ui/apple-cards-carousel";
 import InfoVideo from "@/components/Videos";
-import { TextGenerateEffect } from './ui/TextGenerateEffect';
 import { MagicButton } from './ui/MagicButton';
-import { HoveredLink, Menu, MenuItem, ProductItem } from './ui/NavBar';
-import { FloatingNav } from "./ui/FloatingNavBar";
+import { Menu } from './ui/NavBar';
 import { cn } from "@/utils/cn";
 import { HoverEffect } from "./ui/CardHoverEffect";
-import { PlaceholdersAndVanishInput } from "./ui/VanishInput";
 import WobbleCardInfo from "./Card";
-import Grid from "./Grid";
-import BackGroundBoxes from "./BackgroundBoxes";
 import Footer from "./Footer";
 import Image from 'next/image'; // Assuming you're using Next.js
-import { FaBrain, FaRobot, FaMoneyCheckAlt, FaEye, FaShieldAlt } from 'react-icons/fa';
+import { FaBrain, FaEye, FaShieldAlt } from 'react-icons/fa';
 import { IoLogoElectron, IoFlash, IoTime } from 'react-icons/io5';
-import Link from 'next/link';
 import { InfiniteMovingCards } from "./ui/InfiniteMovingCards";
 import { SignupFormDemo } from "./ui/SignUp"; // adjust path if needed
 import { usePathname, useRouter } from 'next/navigation';
 
 
 const Hero = () => {
-    const [showSignup, setShowSignup] = useState(false); // toggle state
+    const [] = useState(false); // toggle state
     const cards = data.map((card, index) => (
         <Card key={card.src} card={card} index={index} layout={true} />
       ));
@@ -123,14 +116,7 @@ const Hero = () => {
           </div>
           </div>
 
-            {/* <h2 className="mb-10 sm:mb-20 text-xl text-center sm:text-5xl dark:text-white text-black">
-                Ask Aceternity UI Anything
-            </h2>
-            <PlaceholdersAndVanishInput
-                placeholders={placeholders}
-                onChange={handleChange}
-                onSubmit={onSubmit}
-            />  */}
+    
 
               <section id="contact_us" className="bg-black dark:bg-black py-16 px-4 md:px-8">
               <div className="max-w-4xl mx-auto text-center">
@@ -195,23 +181,9 @@ export const projects = [
 
 
 
-  const navItems = [
-    {
-      name: "Home",
-      link: "/",
-    },
-    {
-      name: "About",
-      link: "/about",
-     
-    },
-    {
-      name: "Contact",
-      link: "/contact",
-    },
-  ];
 
 function Navbar({ className }: { className?: string }) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [active, setActive] = useState<string | null>(null);
   const [currentLang, setCurrentLang] = useState<"en" | "vn">("en");
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -657,20 +629,5 @@ const DigitalTwinContent = () => (
   ];
   
   
-                
-  const placeholders = [
-    "What's the first rule of Fight Club?",
-    "Who is Tyler Durden?",
-    "Where is Andrew Laeddis Hiding?",
-    "Write a Javascript method to reverse a string",
-    "How to assemble your own PC?",
-  ];
- 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-  };
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("submitted");
-  };
+              
 export default Hero

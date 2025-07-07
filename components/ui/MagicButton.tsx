@@ -3,7 +3,6 @@ import React from 'react'
 export const MagicButton = ({
   title,
   icon,
-  position,
   handleClick,
   otherClasses,
 }: {

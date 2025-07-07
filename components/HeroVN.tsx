@@ -507,14 +507,14 @@ const DigitalTwinContent = () => (
     <div className="flex justify-center mb-6">
       <Image
         src="/digitaltwin_framework.png"
-        alt="Khung giám sát sức khỏe máy thời gian thực cho ứng dụng chăm sóc robot CNC dựa trên kiến trúc ISO 23247 với giao tiếp qua ROS và OPC-UA."
+        alt="Khung giám sát sức khỏe máy thời gian thực cho ứng dụng chăm sóc robot CNC dựa trên kiến trúc ISO 23247 với giao tiếp qua OPC-UA."
         width={800}
         height={400}
         className="rounded-lg"
       />
     </div>
     <p className="text-neutral-600 text-base md:text-1xl font-sans max-w-3xl mx-auto">
-      Khung giám sát sức khỏe máy thời gian thực cho ứng dụng chăm sóc robot CNC dựa trên kiến trúc ISO 23247 với giao tiếp qua ROS và OPC-UA.
+      Khung giám sát sức khỏe máy thời gian thực cho ứng dụng chăm sóc robot CNC dựa trên kiến trúc ISO 23247 với giao tiếp qua OPC-UA.
     </p>
 
     <p className="text-neutral-600 text-base md:text-2xl font-sans max-w-3xl mx-auto">

@@ -527,7 +527,7 @@ const DigitalTwinContent = () => (
     <div className="flex justify-center mb-6">
       <Image
         src="/digitaltwin_framework.png"
-        alt="Real-time machine health monitoring DT framework for robot CNC tending application based on ISO ISO 23247 architecture with communication via ROS and OPC-UA."
+        alt="Real-time machine health monitoring DT framework for robot CNC tending application based on ISO ISO 23247 architecture with communication via OPC-UA."
         width={800}
         height={400}
         className="rounded-lg"
@@ -535,7 +535,7 @@ const DigitalTwinContent = () => (
       
     </div>
     <p className="text-neutral-600 text-base md:text-1xl font-sans max-w-3xl mx-auto">
-      Real-time machine health monitoring DT framework for robot CNC tending application based on ISO ISO 23247 architecture with communication via ROS and OPC-UA.
+      Real-time machine health monitoring DT framework for robot CNC tending application based on ISO ISO 23247 architecture with communication via OPC-UA.
       </p>
 
 

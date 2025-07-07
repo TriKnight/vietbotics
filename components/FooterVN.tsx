@@ -73,7 +73,7 @@ const FooterVN: React.FC = () => {
           </div>
         </div>
         <div className="mt-8 border-t border-white/20 pt-8 flex flex-wrap justify-between items-center">
-          <p className="text-sm text-neutral-400">&copy; 2024 OpenMind Robotics - Vision-Embodied Technology for Robotics. All rights reserved.</p>
+          <p className="text-sm text-neutral-400">&copy; 2024 OpenMind Robotics - Embodied AI Technology for Robotics. All rights reserved.</p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors">
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

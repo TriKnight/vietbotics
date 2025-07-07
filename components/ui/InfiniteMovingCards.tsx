@@ -73,8 +73,8 @@ export const InfiniteMovingCards = ({
             <Image
               src={item.quote}
               alt={item.name || `logo-${idx}`}
-              width={84}
-              height={84}
+              width={240}
+              height={300}
               className="object-contain mb-3"
             />
             {item.name && (

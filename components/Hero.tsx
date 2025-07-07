@@ -270,14 +270,14 @@ function Navbar({ className }: { className?: string }) {
                 onClick={() => changeLanguage("en")}
                 className="w-full flex items-center space-x-2 px-4 py-2 text-sm text-left hover:bg-gray-100 dark:hover:bg-neutral-700"
               >
-                <Image src="/logos/en.svg" alt="EN" width={20} height={20} />
+                <Image src="/logos/en.png" alt="EN" width={20} height={20} />
                 <span className="text-black dark:text-white">EN</span>
               </button>
               <button
                 onClick={() => changeLanguage("vn")}
                 className="w-full flex items-center space-x-2 px-4 py-2 text-sm text-left hover:bg-gray-100 dark:hover:bg-neutral-700"
               >
-                <Image src="/logos/vn.svg" alt="VN" width={20} height={20} />
+                <Image src="/logos/vn.png" alt="VN" width={20} height={20} />
                 <span className="text-black dark:text-white">VN</span>
               </button>
             </div>

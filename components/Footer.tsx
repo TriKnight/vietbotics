@@ -48,9 +48,9 @@ const Footer: React.FC = () => {
             </h3>
             <ul>
               <li><a href="#" className="hover:text-1xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-200">Home</a></li>
-              <li><a href="#" className="hover:text-1xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-200">About</a></li>
-              <li><a href="#" className="hover:text-1xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-200">Services</a></li>
-              <li><a href="#" className="hover:text-1xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-200">Contact</a></li>
+              <li><a href="#solutions_pick_and_place" className="hover:text-1xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-200">About</a></li>
+              <li><a href="#technology" className="hover:text-1xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-200">Services</a></li>
+              <li><a href="#contact_us" className="hover:text-1xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-200">Contact</a></li>
             </ul>
           </div>
           <div className="w-full md:w-1/3">

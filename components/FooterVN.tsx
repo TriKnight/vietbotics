@@ -47,10 +47,10 @@ const FooterVN: React.FC = () => {
               Link nổi bật
             </h3>
             <ul>
-              <li><a href="openmindrobotics.com/vn" className="hover:text-1xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-200">Trang chủ</a></li>
-              <li><a href="#" className="hover:text-1xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-200">Giải pháp</a></li>
-              <li><a href="#" className="hover:text-1xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-200">Công nghệ</a></li>
-              <li><a href="#" className="hover:text-1xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-200">Liên hệ</a></li>
+              <li><a href="#/vn" className="hover:text-1xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-200">Trang chủ</a></li>
+              <li><a href="#solutions_pick_and_place" className="hover:text-1xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-200">Giải pháp</a></li>
+              <li><a href="#technology" className="hover:text-1xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-200">Công nghệ</a></li>
+              <li><a href="#contact_us" className="hover:text-1xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-200">Liên hệ</a></li>
             </ul>
           </div>
           <div className="w-full md:w-1/3">

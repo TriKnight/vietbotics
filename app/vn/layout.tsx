@@ -16,8 +16,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "OpenMind Robotics",
-  description: "Embodied AI cho Robotics",
+  title: "Vision-Embodied AI",
+  description: "Embodied AI định hình tương lai ngành Logistics",
 };
 
 export default function RootLayout({

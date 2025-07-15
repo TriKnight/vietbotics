@@ -20,6 +20,7 @@ function getLocale(request: NextRequest) {
 export function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname;
 
+  // Skip API, _next, and static files
   if (
     pathname.startsWith('/api') ||
     pathname.includes('/_next') ||
@@ -35,8 +36,14 @@ export function middleware(req: NextRequest) {
 
   if (!pathnameHasLocale) {
     const locale = getLocale(req);
-    return NextResponse.rewrite(new URL(`/${locale}${pathname}`, req.url));
+
+    // 🚀 Redirect instead of rewrite
+    const url = req.nextUrl.clone();
+    url.pathname = `/${locale}${pathname}`;
+    return NextResponse.redirect(url);
   }
+
+  return NextResponse.next();
 }
 
 export const config = {

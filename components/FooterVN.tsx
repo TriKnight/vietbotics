@@ -39,7 +39,7 @@ const FooterVN: React.FC = () => {
             <ul>
               <li><a href="#" className="hover:text-1xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-b  from-neutral-400 to-yellow-100"> Địa chỉ: Đường D10S, Oasis Riverside, Khu phố 4, P.Thới Hòa, TP. Hồ Chí Minh, Việt Nam</a></li>
               <li><a href="#" className="hover:text-1xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-b  from-neutral-400 to-yellow-100">Điện thoại: (+84) 333-689-700</a></li>
-              <li><a href="#" className="hover:text-1xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-b  from-neutral-400 to-yellow-100">Email: info@openmindrobotics.com</a></li>
+              <li><a href="#" className="hover:text-1xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-b  from-neutral-400 to-yellow-100">Email: contact@openmindrobotics.com</a></li>
             </ul>
           </div>
           <div className="w-full md:w-1/3 mb-6 md:mb-0">

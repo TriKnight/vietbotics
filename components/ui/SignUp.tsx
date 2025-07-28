@@ -54,7 +54,7 @@ export function SignupFormDemo() {
           >
         </button>
         <p className="mt-4 text-lg font-bold text-neutral-600 text-black text-neutral-300">
-                info@openmindrobotics.com
+                contact@openmindrobotics.com
          </p>
            <p className="mt-4 text-lg font-bold text-neutral-600 text-black text-neutral-300">
                 +84 333 689 700

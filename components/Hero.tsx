@@ -13,7 +13,7 @@ import Image from 'next/image'; // Assuming you're using Next.js
 import { FaBrain, FaEye, FaShieldAlt } from 'react-icons/fa';
 import { IoLogoElectron, IoFlash, IoTime } from 'react-icons/io5';
 import { InfiniteMovingCards } from "./ui/InfiniteMovingCards";
-import { SignupFormDemo } from "./ui/SignUp"; // adjust path if needed
+// import { SignupFormDemo } from "./ui/SignUp"; // adjust path if needed
 import { usePathname, useRouter } from 'next/navigation';
 
 

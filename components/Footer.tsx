@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
             <ul>
               <li><a href="#" className="hover:text-1xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-b  from-neutral-400 to-yellow-100"> Address: D10S Street, Oasis Riverside, Quarter 4, Thoi Hoa Industrial Parks, Ho Chi Minh City, VietNam</a></li>
               <li><a href="#" className="hover:text-1xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-b  from-neutral-400 to-yellow-100">Phone: (+84) 333-689-700</a></li>
-              <li><a href="#" className="hover:text-1xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-b  from-neutral-400 to-yellow-100">Email: contact@openmindrobotics.com</a></li>
+              <li><a href="mailto:contact@openmindrobotics.com" className="hover:text-1xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-b  from-neutral-400 to-yellow-100">Email: contact@openmindrobotics.com</a></li>
             </ul>
           </div>
           <div className="w-full md:w-1/3 mb-6 md:mb-0">

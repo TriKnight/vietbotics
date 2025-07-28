@@ -115,10 +115,9 @@ const Hero = () => {
             />
           </div>
           </div>
-
-    
-
-              <section id="contact_us" className="bg-black dark:bg-black py-16 px-4 md:px-8">
+          
+          {/* CONTACT US Section */}
+              {/* <section id="contact_us" className="bg-black dark:bg-black py-16 px-4 md:px-8">
               <div className="max-w-4xl mx-auto text-center">
                 <h1   className="text-4xl sm:text-5xl font-bold  bg-clip-text text-transparent bg-gradient-to-b from-neutral-300 to-yellow-100 py-8 text-center">
                   Contact us
@@ -131,12 +130,12 @@ const Hero = () => {
                 </div>
                 
                 </div>
-            </section>
+            </section> */}
   
 
             
 
-            <div className="w-full py-20">
+            <div id="contact_us" className="w-full py-20"  >
             <Footer />
             </div>
             {/* <BackGroundBoxes /> */}

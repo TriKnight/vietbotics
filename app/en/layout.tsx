@@ -17,7 +17,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "OpenMind Robotics",
-  description: "Embodied AI Redefining Logistic Industry",
+  description: "ONE BRAIN, ANY ROBOTS, ANY TASKS",
 };
 
 export default function RootLayout({

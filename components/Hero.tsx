@@ -52,7 +52,7 @@ const Hero = () => {
                   </h1>
                 </div>
                     <p className="text-4xl sm:text-5xl font-bold  bg-clip-text text-transparent bg-gradient-to-b from-yellow-500 to-white-100  text-center">
-                    Embodied AI Redefining Logistic Industry
+                    ONE BRAIN, ANY ROBOTS, ANY TASKS
                     </p>
                    
                     {/* <TextGenerateEffect

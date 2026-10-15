@@ -182,6 +182,7 @@ export const partnerLogos = [
   { src: "/logos/UniversalRobot.png", name: "Universal Robots" },
   { src: "/logos/ABB_Robotics.webp", name: "ABB Robotics" },
   { src: "/logos/KUKA.png", name: "KUKA" },
+  { src: "/logos/gradion.png", name: "Gradion" },
   { src: "/logos/Yaskawa_Logo.png", name: "Yaskawa" },
   { src: "/logos/FANUC-logo-2.webp", name: "FANUC" },
   { src: "/logos/Farino.png", name: "FAIRINO" },

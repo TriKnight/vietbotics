@@ -35,8 +35,8 @@ export const applications: Application[] = [
       vn: "Cánh tay robot cộng tác trong một trạm nhỏ gọn, định vị các chi tiết đặt ngẫu nhiên bằng thị giác 3D và chuyển chúng giữa các thùng mà không cần đồ gá hay dạy robot thủ công.",
     },
     features: {
-      en: ["3D Vision Localization", "Collision-free Dual-arm Planning", "Zero-Fixture Setup", "Compact Footprint"],
-      vn: ["Định vị bằng thị giác 3D", "Lập quỹ đạo hai tay không va chạm", "Không cần đồ gá", "Diện tích nhỏ gọn"],
+      en: ["3D Vision Localization", "Collision-free Advanced Motion Planning", "Zero-Fixture Setup", "Compact Footprint"],
+      vn: ["Định vị bằng thị giác 3D", "Lập quỹ đạo tiên tiến không va chạm", "Không cần đồ gá", "Diện tích nhỏ gọn"],
     },
   },
   {

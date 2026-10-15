@@ -8,6 +8,8 @@ export interface Application {
   id: string;
   category: CategoryId;
   video: string;
+  // Low-res copy for the hover previews on the small tiles
+  preview: string;
   poster: string;
   title: Localized;
   description: Localized;
@@ -27,7 +29,8 @@ export const applications: Application[] = [
   {
     id: "bin-picking",
     category: "material-handling",
-    video: `${VIDEO_DIR}/1_bin_picking_1.5x.webm`,
+    video: `${VIDEO_DIR}/720p/1_bin_picking_1.5x.webm`,
+    preview: `${VIDEO_DIR}/360p/1_bin_picking_1.5x.webm`,
     poster: `${VIDEO_DIR}/posters/1_bin_picking_1.5x.jpg`,
     title: { en: "Bin Picking", vn: "Gắp vật từ thùng" },
     description: {
@@ -42,7 +45,8 @@ export const applications: Application[] = [
   {
     id: "mobile-palletizing",
     category: "logistics",
-    video: `${VIDEO_DIR}/2_Palletizing.webm`,
+    video: `${VIDEO_DIR}/720p/2_Palletizing.webm`,
+    preview: `${VIDEO_DIR}/360p/2_Palletizing.webm`,
     poster: `${VIDEO_DIR}/posters/2_Palletizing.jpg`,
     title: { en: "Mobile Unloading & Palletizing", vn: "Dỡ hàng & xếp pallet di động" },
     description: {
@@ -57,7 +61,8 @@ export const applications: Application[] = [
   {
     id: "container-unloading",
     category: "logistics",
-    video: `${VIDEO_DIR}/3_Unloading_container.webm`,
+    video: `${VIDEO_DIR}/720p/3_Unloading_container.webm`,
+    preview: `${VIDEO_DIR}/360p/3_Unloading_container.webm`,
     poster: `${VIDEO_DIR}/posters/3_Unloading_container.jpg`,
     title: { en: "Truck & Container Unloading", vn: "Dỡ hàng từ container" },
     description: {
@@ -72,7 +77,8 @@ export const applications: Application[] = [
   {
     id: "column-palletizing",
     category: "logistics",
-    video: `${VIDEO_DIR}/4_palletizing.webm`,
+    video: `${VIDEO_DIR}/720p/4_palletizing.webm`,
+    preview: `${VIDEO_DIR}/360p/4_palletizing.webm`,
     poster: `${VIDEO_DIR}/posters/4_palletizing.jpg`,
     title: { en: "Dual-station Palletizing", vn: "Xếp pallet hai trạm" },
     description: {
@@ -87,7 +93,8 @@ export const applications: Application[] = [
   {
     id: "engine-inspection",
     category: "inspection",
-    video: `${VIDEO_DIR}/5_inspection.webm`,
+    video: `${VIDEO_DIR}/720p/5_inspection.webm`,
+    preview: `${VIDEO_DIR}/360p/5_inspection.webm`,
     poster: `${VIDEO_DIR}/posters/5_inspection.jpg`,
     title: { en: "Engine Crack Inspection", vn: "Kiểm tra vết nứt động cơ" },
     description: {
@@ -102,7 +109,8 @@ export const applications: Application[] = [
   {
     id: "mobile-manipulation",
     category: "material-handling",
-    video: `${VIDEO_DIR}/6_ur10e_mobile_manipulation.webm`,
+    video: `${VIDEO_DIR}/720p/6_ur10e_mobile_manipulation.webm`,
+    preview: `${VIDEO_DIR}/360p/6_ur10e_mobile_manipulation.webm`,
     poster: `${VIDEO_DIR}/posters/6_ur10e_mobile_manipulation.jpg`,
     title: { en: "Mobile Manipulation & Bin Picking", vn: "Robot di động gắp vật từ thùng" },
     description: {

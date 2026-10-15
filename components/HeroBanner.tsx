@@ -9,6 +9,8 @@ const HeroBanner = ({ lang }: { lang: Lang }) => {
     <section className="relative isolate overflow-hidden rounded-3xl border border-line/10 mt-24 md:mt-28 min-h-[640px] md:min-h-[720px] flex items-center">
       <video
         src="/videos/intro-optimized.mp4"
+        poster="/videos/intro-poster.jpg"
+        preload="auto"
         autoPlay
         loop
         muted

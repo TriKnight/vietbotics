@@ -127,7 +127,7 @@ const ApplicationTile = ({
       <div className="relative aspect-video overflow-hidden">
         <video
           ref={videoRef}
-          src={app.video}
+          src={app.preview}
           poster={app.poster}
           muted
           loop

@@ -25,6 +25,19 @@
     --input: 240 5.9% 90%;
     --ring: 240 10% 3.9%;
     --radius: 0.5rem;
+
+    /* Site theme tokens (RGB channels so Tailwind opacity modifiers work) */
+    --page: 248 249 251;
+    --surface: 255 255 255;
+    --ink: 17 24 39;
+    --body: 75 85 99;
+    --subtle: 107 114 128;
+    --line: 15 23 42;
+    --brand: 180 83 9;
+    --heading-from: #111827;
+    --heading-to: #92400e;
+    --hero-glow-center: rgba(255, 255, 255, 0.82);
+    --hero-glow-edge: rgba(255, 255, 255, 0.2);
   }
 
   .dark {
@@ -47,14 +60,27 @@
     --border: 240 5% 25%;
     --input: 240 5% 25%;
     --ring: 240 5% 80%;
+
+    --page: 0 3 25;
+    --surface: 10 10 10;
+    --ink: 255 255 255;
+    --body: 163 163 163;
+    --subtle: 115 115 115;
+    --line: 255 255 255;
+    --brand: 250 204 21;
+    --heading-from: #e5e5e5;
+    --heading-to: #fef9c3;
+    --hero-glow-center: rgba(0, 3, 25, 0.55);
+    --hero-glow-edge: rgba(0, 3, 25, 0.15);
   }
 
   * {
     @apply border-border !scroll-smooth;
   }
 
+  html,
   body {
-    @apply bg-background text-foreground;
+    @apply bg-page text-ink;
   }
 
   button {
@@ -63,6 +89,11 @@
 }
 
 @layer utilities {
+  .text-heading-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(to bottom, var(--heading-from), var(--heading-to));
+  }
+
   .heading {
     @apply font-bold text-4xl md:text-5xl text-center;
   }

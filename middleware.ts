@@ -10,11 +10,17 @@ function getLocale(request: NextRequest) {
     headers[key] = value;
   });
 
-  return matchLocale(
-    new Negotiator({ headers }).languages(),
-    i18n.locales,
-    i18n.defaultLocale
-  );
+  // Negotiator returns "*" when there is no Accept-Language header, which Intl rejects.
+  // Our Vietnamese route is /vn, but browsers report the language as "vi".
+  const languages = new Negotiator({ headers })
+    .languages()
+    .filter((l) => l !== '*')
+    .map((l) => (l.toLowerCase().startsWith('vi') ? 'vn' : l));
+  try {
+    return matchLocale(languages, i18n.locales, i18n.defaultLocale);
+  } catch {
+    return i18n.defaultLocale;
+  }
 }
 
 export function middleware(req: NextRequest) {

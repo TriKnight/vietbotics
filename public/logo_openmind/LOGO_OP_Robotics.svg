@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="100%" height="100%">
+  <defs>
+    <filter id="global-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#000000" flood-opacity="0.2" />
+    </filter>
+
+    <linearGradient id="blueMetallic" x1="10%" y1="40%" x2="40%" y2="10%">
+      <stop offset="0%" stop-color="#1b416b" />
+      <stop offset="25%" stop-color="#2d649c" />
+      <stop offset="50%" stop-color="#5496d6" />
+      <stop offset="75%" stop-color="#296097" />
+      <stop offset="100%" stop-color="#143254" />
+    </linearGradient>
+
+    <linearGradient id="silverMetallic" x1="10%" y1="10%" x2="50%" y2="90%">
+      <stop offset="0%" stop-color="#73777c" />
+      <stop offset="25%" stop-color="#cbced3" />
+      <stop offset="50%" stop-color="#f2f4f7" />
+      <stop offset="75%" stop-color="#e1e4e9" />
+      <stop offset="100%" stop-color="#56595d" />
+    </linearGradient>
+
+    <linearGradient id="surfaceShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.15" />
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#global-shadow)">
+    
+    <g>
+      <path d="M 160 76.5 A 83.5 83.5 0 0 1 229 207.5" 
+            fill="none" 
+            stroke="url(#silverMetallic)" 
+            stroke-width="41" 
+            stroke-linecap="butt" />
+
+      <path d="M 229 207.5 A 83.5 83.5 0 1 1 160 76.5" 
+            fill="none" 
+            stroke="url(#blueMetallic)" 
+            stroke-width="41" 
+            stroke-linecap="round" />
+
+      <circle cx="160" cy="160" r="83.5" 
+              fill="none" 
+              stroke="url(#surfaceShine)" 
+              stroke-width="41" 
+              pointer-events="none" />
+
+      <circle cx="160" cy="160" r="104" 
+              fill="none" 
+              stroke="#ffffff" 
+              stroke-width="1" 
+              opacity="0.3" />
+
+      <circle cx="160" cy="160" r="63" 
+              fill="none" 
+              stroke="#ffffff" 
+              stroke-width="1" 
+              opacity="0.2" />
+    </g>
+
+    <g fill="#2d2d2d" font-family="'Arial'">
+      <text x="300" y="142" 
+            font-size="120" 
+            font-weight="900" 
+            letter-spacing="-1">OPENMIND</text>
+      
+      <text x="300" y="250" 
+            font-size="120" 
+            font-weight="900" 
+            letter-spacing="1">ROBOTICS</text>
+    </g>
+  </g>
+</svg>

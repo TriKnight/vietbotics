@@ -26,6 +26,18 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        // Apple-style headings: SF Pro on Apple devices, Inter (app/fonts.ts) everywhere else
+        display: [
+          "-apple-system",
+          "BlinkMacSystemFont",
+          '"SF Pro Display"',
+          "var(--font-inter)",
+          '"Helvetica Neue"',
+          "Arial",
+          "sans-serif",
+        ],
+      },
       colors: {
         black: {
           DEFAULT: "#000",
@@ -42,6 +54,14 @@ const config = {
           "100": "#E4ECFF",
         },
         purple: "#CBACF9",
+        // Site theme tokens, defined per theme in app/globals.css
+        page: "rgb(var(--page) / <alpha-value>)",
+        surface: "rgb(var(--surface) / <alpha-value>)",
+        ink: "rgb(var(--ink) / <alpha-value>)",
+        body: "rgb(var(--body) / <alpha-value>)",
+        subtle: "rgb(var(--subtle) / <alpha-value>)",
+        line: "rgb(var(--line) / <alpha-value>)",
+        brand: "rgb(var(--brand) / <alpha-value>)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { inter } from "./fonts";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 
@@ -18,6 +19,10 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "OpenMind Robotics",
   description: "Embodied AI Redefining Industry",
+  icons: {
+    icon: "/logo_openmind/Logo_remove_bg.png",
+    apple: "/logo_openmind/Logo_remove_bg.png",
+  },
 };
 
 export default function RootLayout({
@@ -28,14 +33,14 @@ export default function RootLayout({
   params: { locale: string };
 }) {
   return (
-    <html lang={params.locale}>
+    <html lang={params.locale} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           {children}

@@ -140,8 +140,8 @@ export const applicationsCopy: Record<
     simTitle: "See how our robots handle your specific use case",
     simBody:
       "Send us a short clip or layout of your process, and we'll build a free digital-twin simulation of the automated cell.",
-    simCta: "Request a free simulation",
-    simulatedNote: "Digital twin simulation",
+    simCta: "Request a free Digital Twin Commissioning",
+    simulatedNote: "Digital Twin Commissioning",
   },
   vn: {
     eyebrow: "Ứng dụng",

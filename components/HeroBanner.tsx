@@ -1,6 +1,6 @@
 import React from "react";
 import type { Lang } from "@/data/applications";
-import { heroCopy } from "@/data/home";
+import { CONTACT_EMAIL, heroCopy } from "@/data/home";
 
 const HeroBanner = ({ lang }: { lang: Lang }) => {
   const copy = heroCopy[lang];
@@ -36,7 +36,7 @@ const HeroBanner = ({ lang }: { lang: Lang }) => {
 
         <div className="mt-10 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
           <a
-            href="#contact_us"
+            href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(copy.primaryCta)}`}
             className="inline-flex items-center justify-center gap-2 rounded-lg bg-yellow-400 px-7 py-3.5 text-sm font-semibold text-black hover:bg-yellow-300 transition-colors"
           >
             {copy.primaryCta}

@@ -2,7 +2,15 @@ import React from "react";
 import Logo from "./Logo";
 import type { Lang } from "@/data/applications";
 import { applications } from "@/data/applications";
+import { FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
+import type { IconType } from "react-icons";
 import { CONTACT_EMAIL, CONTACT_PHONE, footerCopy, nav, socialLinks } from "@/data/home";
+
+const socialIcons: Record<string, IconType> = {
+  LinkedIn: FaLinkedin,
+  YouTube: FaYoutube,
+  Facebook: FaFacebook,
+};
 
 const SiteFooter = ({ lang }: { lang: Lang }) => {
   const copy = footerCopy[lang];
@@ -30,6 +38,27 @@ const SiteFooter = ({ lang }: { lang: Lang }) => {
         <div className="lg:col-span-4">
           <Logo id="footer-logo" className="h-14 w-auto mb-5 text-ink" />
           <p className="text-body leading-relaxed max-w-sm">{copy.about}</p>
+          {socials.length > 0 && (
+            <ul className="mt-6 flex gap-3">
+              {socials.map((s) => {
+                const Icon = socialIcons[s.name];
+                return (
+                  <li key={s.name}>
+                    <a
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={s.name}
+                      title={s.name}
+                      className="flex h-12 w-12 items-center justify-center rounded-full border border-line/15 text-ink/80 hover:text-brand hover:border-brand/40 transition-colors"
+                    >
+                      {Icon ? <Icon className="h-6 w-6" /> : s.name}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </div>
 
         <div className="lg:col-span-2">
@@ -76,21 +105,10 @@ const SiteFooter = ({ lang }: { lang: Lang }) => {
         </div>
       </div>
 
-      <div className="flex flex-col-reverse gap-4 border-t border-line/10 py-8 text-sm text-subtle sm:flex-row sm:items-center sm:justify-between">
+      <div className="border-t border-line/10 py-8 text-sm text-subtle">
         <p>
           © {new Date().getFullYear()} OpenMind Robotics. {copy.rights}
         </p>
-        {socials.length > 0 && (
-          <ul className="flex gap-6">
-            {socials.map((s) => (
-              <li key={s.name}>
-                <a href={s.href} target="_blank" rel="noopener noreferrer" className="hover:text-ink transition-colors">
-                  {s.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
       </div>
     </footer>
   );

@@ -231,7 +231,7 @@ export const footerCopy: Record<
 
 // Add real profile URLs here; entries with an empty href are not rendered.
 export const socialLinks: { name: string; href: string }[] = [
-  { name: "LinkedIn", href: "" },
-  { name: "YouTube", href: "" },
-  { name: "Facebook", href: "" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/openmind-robotics-ltd" },
+  { name: "YouTube", href: "https://www.youtube.com/@OpenMindRobotics" },
+  { name: "Facebook", href: "https://www.facebook.com/OpenMindRobotics/" },
 ];

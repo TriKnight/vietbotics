@@ -10,6 +10,7 @@ import {
   applicationsCopy,
   categories,
 } from "@/data/applications";
+import { CONTACT_EMAIL } from "@/data/home";
 
 // Plays the video only while it is on screen, so six 1080p clips don't all decode at once.
 const useAutoplayInView = (ref: React.RefObject<HTMLVideoElement>, src: string) => {
@@ -74,7 +75,7 @@ const FeaturedApplication = ({ app, lang }: { app: Application; lang: Lang }) =>
           ))}
         </ul>
         <a
-          href="#contact_us"
+          href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(copy.cta)}`}
           className="inline-flex items-center gap-2 rounded-lg bg-yellow-400 px-6 py-3 text-sm font-semibold text-black hover:bg-yellow-300 transition-colors"
         >
           {copy.cta}
@@ -215,7 +216,7 @@ const Applications = ({ lang = "en" }: { lang?: Lang }) => {
           <p className="text-body text-base md:text-lg">{copy.simBody}</p>
         </div>
         <a
-          href={`mailto:contact@openmindrobotics.com?subject=${encodeURIComponent(copy.simCta)}`}
+          href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(copy.simCta)}`}
           className="shrink-0 inline-flex items-center justify-center gap-2 rounded-lg border border-brand px-6 py-3 text-sm font-semibold text-brand hover:border-yellow-400 hover:bg-yellow-400 hover:text-black transition-colors"
         >
           {copy.simCta}

@@ -7,13 +7,85 @@ import { contactFormCopy } from "@/data/contact";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+// Cloudflare Turnstile ("Verify you are human" tick box). Without a site key the widget is skipped.
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+const TURNSTILE_SRC = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+
+type TurnstileApi = {
+  render: (el: HTMLElement, options: Record<string, unknown>) => string;
+  reset: (id: string) => void;
+  remove: (id: string) => void;
+};
+declare global {
+  interface Window {
+    turnstile?: TurnstileApi;
+  }
+}
+
+let turnstileScript: Promise<TurnstileApi> | null = null;
+const loadTurnstile = () =>
+  (turnstileScript ??= new Promise<TurnstileApi>((resolve, reject) => {
+    if (window.turnstile) return resolve(window.turnstile);
+    const script = document.createElement("script");
+    script.src = TURNSTILE_SRC;
+    script.async = true;
+    script.onload = () => (window.turnstile ? resolve(window.turnstile) : reject());
+    script.onerror = () => {
+      turnstileScript = null;
+      reject();
+    };
+    document.head.appendChild(script);
+  }));
+
+// Renders the tick box and reports the token; bump `resetKey` to get a fresh token after a failed send (tokens are single-use)
+const HumanCheck = ({ lang, resetKey, onToken }: { lang: Lang; resetKey: number; onToken: (token: string) => void }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const widget = useRef<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    loadTurnstile()
+      .then((turnstile) => {
+        if (cancelled || !ref.current || !TURNSTILE_SITE_KEY) return;
+        widget.current = turnstile.render(ref.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          language: lang === "vn" ? "vi" : "en",
+          theme: document.documentElement.classList.contains("dark") ? "dark" : "light",
+          size: "flexible",
+          callback: (token: string) => onToken(token),
+          "expired-callback": () => onToken(""),
+          "error-callback": () => onToken(""),
+        });
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+      if (widget.current) window.turnstile?.remove(widget.current);
+      widget.current = null;
+    };
+  }, [lang, onToken]);
+
+  useEffect(() => {
+    if (resetKey && widget.current) {
+      onToken("");
+      window.turnstile?.reset(widget.current);
+    }
+  }, [resetKey, onToken]);
+
+  return <div ref={ref} className="mt-5 min-h-[65px]" />;
+};
+
 const inputClass =
   "w-full rounded-lg border border-line/15 bg-page px-3.5 py-2.5 text-sm text-ink placeholder:text-subtle focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20";
 
 const ContactDialog = ({ lang, topic, onClose }: { lang: Lang; topic: string; onClose: () => void }) => {
   const copy = contactFormCopy[lang];
   const [status, setStatus] = useState<Status>("idle");
+  const [token, setToken] = useState("");
+  const [resetKey, setResetKey] = useState(0);
+  const openedAt = useRef(Date.now());
   const firstField = useRef<HTMLInputElement>(null);
+  const needsCheck = Boolean(TURNSTILE_SITE_KEY);
 
   useEffect(() => {
     firstField.current?.focus();
@@ -29,17 +101,20 @@ const ContactDialog = ({ lang, topic, onClose }: { lang: Lang; topic: string; on
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (needsCheck && !token) return;
     setStatus("sending");
     const fields = Object.fromEntries(new FormData(e.currentTarget));
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...fields, topic }),
+        body: JSON.stringify({ ...fields, topic, token, elapsed: Date.now() - openedAt.current }),
       });
       setStatus(res.ok ? "sent" : "error");
+      if (!res.ok) setResetKey((k) => k + 1);
     } catch {
       setStatus("error");
+      setResetKey((k) => k + 1);
     }
   };
 
@@ -129,6 +204,8 @@ const ContactDialog = ({ lang, topic, onClose }: { lang: Lang; topic: string; on
               <input name="website" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
             </div>
 
+            {needsCheck && <HumanCheck lang={lang} resetKey={resetKey} onToken={setToken} />}
+
             {status === "error" && (
               <p role="alert" className="mt-4 rounded-lg bg-red-500/10 px-3.5 py-2.5 text-sm text-red-600 dark:text-red-400">
                 {copy.error}{" "}
@@ -140,7 +217,8 @@ const ContactDialog = ({ lang, topic, onClose }: { lang: Lang; topic: string; on
 
             <button
               type="submit"
-              disabled={status === "sending"}
+              disabled={status === "sending" || (needsCheck && !token)}
+              title={needsCheck && !token ? copy.verifyHint : undefined}
               className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-lg bg-yellow-400 px-7 py-3.5 text-sm font-semibold text-black hover:bg-yellow-300 disabled:opacity-60 transition-colors"
             >
               {status === "sending" ? copy.sending : copy.submit}

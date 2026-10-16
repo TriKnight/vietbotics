@@ -17,6 +17,7 @@ export const contactFormCopy: Record<
     successTitle: string;
     successBody: string;
     error: string;
+    verifyHint: string;
     close: string;
   }
 > = {
@@ -35,6 +36,7 @@ export const contactFormCopy: Record<
     successTitle: "Thank you!",
     successBody: "Your request has been sent. Our team will contact you shortly.",
     error: "Something went wrong. Please try again or email us directly at",
+    verifyHint: "Please confirm you are human first",
     close: "Close",
   },
   vn: {
@@ -52,6 +54,7 @@ export const contactFormCopy: Record<
     successTitle: "Cảm ơn bạn!",
     successBody: "Yêu cầu của bạn đã được gửi. Đội ngũ của chúng tôi sẽ liên hệ với bạn sớm.",
     error: "Đã có lỗi xảy ra. Vui lòng thử lại hoặc gửi email trực tiếp tới",
+    verifyHint: "Vui lòng xác minh bạn là người thật trước",
     close: "Đóng",
   },
 };

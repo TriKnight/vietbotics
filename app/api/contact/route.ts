@@ -8,6 +8,26 @@ const TO = process.env.CONTACT_EMAIL || "contact@openmindrobotics.com";
 const limits = { name: 120, email: 200, company: 200, phone: 50, message: 5000, topic: 200 } as const;
 type Field = keyof typeof limits;
 
+// Real people need a few seconds to fill the form; bots post instantly
+const MIN_FILL_MS = 3000;
+
+// Confirms the Cloudflare Turnstile token. Skipped when TURNSTILE_SECRET_KEY is not set.
+async function isHuman(token: unknown, ip: string | null) {
+  const secret = process.env.TURNSTILE_SECRET_KEY;
+  if (!secret) return true;
+  if (typeof token !== "string" || !token) return false;
+  const form = new URLSearchParams({ secret, response: token });
+  if (ip) form.set("remoteip", ip);
+  try {
+    const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", { method: "POST", body: form });
+    const result = (await res.json()) as { success?: boolean };
+    return result.success === true;
+  } catch (err) {
+    console.error("Turnstile verification failed", err);
+    return false;
+  }
+}
+
 const escapeHtml = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 
@@ -27,6 +47,15 @@ export async function POST(req: Request) {
 
   // Honeypot: real visitors never see or fill this field, so pretend success for bots
   if (typeof body.website === "string" && body.website) return NextResponse.json({ ok: true });
+
+  if (typeof body.elapsed !== "number" || body.elapsed < MIN_FILL_MS) {
+    return NextResponse.json({ error: "Please take a moment to fill in the form" }, { status: 400 });
+  }
+
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() || null;
+  if (!(await isHuman(body.token, ip))) {
+    return NextResponse.json({ error: "Human verification failed, please try again" }, { status: 403 });
+  }
 
   const data = {} as Record<Field, string>;
   for (const key of Object.keys(limits) as Field[]) {

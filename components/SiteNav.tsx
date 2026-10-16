@@ -7,8 +7,10 @@ import { FiMoon, FiSun } from "react-icons/fi";
 import { cn } from "@/utils/cn";
 import Logo from "./Logo";
 import type { Lang } from "@/data/applications";
-import { heroCopy, localeHref, nav } from "@/data/home";
+import { heroCopy, nav } from "@/data/home";
 import ContactButton from "./ContactButton";
+import NavLink from "./NavLink";
+import SocialLinks from "./SocialLinks";
 
 const LanguageSwitch = ({ lang }: { lang: Lang }) => {
   const router = useRouter();
@@ -79,23 +81,18 @@ const SiteNav = ({ lang }: { lang: Lang }) => {
 
         <nav className="hidden lg:flex items-center gap-8 text-sm font-medium">
           {nav.map((item) => (
-            <a
-              key={item.href}
-              href={localeHref(lang, item.href)}
-              className="text-ink/80 hover:text-brand transition-colors"
-            >
-              {item.label[lang]}
-            </a>
+            <NavLink key={item.href} lang={lang} item={item} className="text-ink/80 hover:text-brand transition-colors" />
           ))}
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
           <ThemeToggle lang={lang} />
+          <SocialLinks className="hidden xl:flex items-center gap-1" />
           <LanguageSwitch lang={lang} />
           <ContactButton
             lang={lang}
             topic={heroCopy[lang].primaryCta}
-            className="rounded-lg bg-yellow-400 px-5 py-2.5 text-sm font-semibold text-black hover:bg-yellow-300 transition-colors"
+            className="rounded-lg bg-cta px-5 py-2.5 text-sm font-semibold text-white hover:bg-cta-hover transition-colors"
           >
             {heroCopy[lang].primaryCta}
           </ContactButton>
@@ -125,22 +122,23 @@ const SiteNav = ({ lang }: { lang: Lang }) => {
         <div className="lg:hidden border-t border-line/10 bg-page/95 px-5 pb-6 pt-2">
           <nav className="flex flex-col">
             {nav.map((item) => (
-              <a
+              // The form item keeps the menu open: closing it would unmount the form's dialog
+              <NavLink
                 key={item.href}
-                href={localeHref(lang, item.href)}
+                lang={lang}
+                item={item}
                 onClick={() => setOpen(false)}
-                className="border-b border-line/5 py-3.5 text-base text-ink/90 hover:text-brand"
-              >
-                {item.label[lang]}
-              </a>
+                className="border-b border-line/5 py-3.5 text-left text-base text-ink/90 hover:text-brand"
+              />
             ))}
           </nav>
-          <div className="mt-5 flex items-center justify-between gap-4">
+          <SocialLinks className="mt-4 flex items-center gap-1 -ml-2" />
+          <div className="mt-4 flex items-center justify-between gap-4">
             <LanguageSwitch lang={lang} />
             <ContactButton
               lang={lang}
               topic={heroCopy[lang].primaryCta}
-              className="rounded-lg bg-yellow-400 px-5 py-2.5 text-sm font-semibold text-black"
+              className="rounded-lg bg-cta px-5 py-2.5 text-sm font-semibold text-white"
             >
               {heroCopy[lang].primaryCta}
             </ContactButton>

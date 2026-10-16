@@ -48,7 +48,7 @@ const FeaturedApplication = ({ app, lang }: { app: Application; lang: Lang }) =>
         </ul>
         <a
           href={`/${lang}/applications`}
-          className="inline-flex items-center gap-2 rounded-lg bg-yellow-400 px-6 py-3 text-sm font-semibold text-black hover:bg-yellow-300 transition-colors"
+          className="inline-flex items-center gap-2 rounded-lg bg-cta px-6 py-3 text-sm font-semibold text-white hover:bg-cta-hover transition-colors"
         >
           {copy.viewAll}
           <span aria-hidden>→</span>
@@ -184,7 +184,7 @@ const Applications = ({ lang = "en" }: { lang?: Lang }) => {
         <ContactButton
           lang={lang}
           topic={copy.simCta}
-          className="shrink-0 inline-flex items-center justify-center gap-2 rounded-lg border border-brand px-6 py-3 text-sm font-semibold text-brand hover:border-yellow-400 hover:bg-yellow-400 hover:text-black transition-colors"
+          className="shrink-0 inline-flex items-center justify-center gap-2 rounded-lg border border-brand px-6 py-3 text-sm font-semibold text-brand hover:border-cta hover:bg-cta hover:text-white transition-colors"
         >
           {copy.simCta}
           <span aria-hidden>→</span>

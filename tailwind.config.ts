@@ -62,6 +62,10 @@ const config = {
         subtle: "rgb(var(--subtle) / <alpha-value>)",
         line: "rgb(var(--line) / <alpha-value>)",
         brand: "rgb(var(--brand) / <alpha-value>)",
+        cta: {
+          DEFAULT: "rgb(var(--cta) / <alpha-value>)",
+          hover: "rgb(var(--cta-hover) / <alpha-value>)",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

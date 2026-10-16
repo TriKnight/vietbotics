@@ -1,17 +1,12 @@
 import React from "react";
 import Logo from "./Logo";
 import ContactButton from "./ContactButton";
+import NavLink from "./NavLink";
 import type { Lang } from "@/data/applications";
 import { applications } from "@/data/applications";
-import { FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
-import type { IconType } from "react-icons";
+import { socialIcons } from "./SocialLinks";
 import { CONTACT_EMAIL, CONTACT_PHONE, footerCopy, localeHref, nav, socialLinks } from "@/data/home";
 
-const socialIcons: Record<string, IconType> = {
-  LinkedIn: FaLinkedin,
-  YouTube: FaYoutube,
-  Facebook: FaFacebook,
-};
 
 const SiteFooter = ({ lang }: { lang: Lang }) => {
   const copy = footerCopy[lang];
@@ -29,7 +24,7 @@ const SiteFooter = ({ lang }: { lang: Lang }) => {
         <ContactButton
           lang={lang}
           topic={copy.ctaButton}
-          className="shrink-0 inline-flex items-center justify-center gap-2 rounded-lg bg-yellow-400 px-7 py-3.5 text-sm font-semibold text-black hover:bg-yellow-300 transition-colors"
+          className="shrink-0 inline-flex items-center justify-center gap-2 rounded-lg bg-cta px-7 py-3.5 text-sm font-semibold text-white hover:bg-cta-hover transition-colors"
         >
           {copy.ctaButton}
           <span aria-hidden>→</span>
@@ -68,9 +63,7 @@ const SiteFooter = ({ lang }: { lang: Lang }) => {
           <ul className="space-y-3">
             {nav.map((item) => (
               <li key={item.href}>
-                <a href={localeHref(lang, item.href)} className="text-ink/80 hover:text-brand transition-colors">
-                  {item.label[lang]}
-                </a>
+                <NavLink lang={lang} item={item} className="text-ink/80 hover:text-brand transition-colors" />
               </li>
             ))}
           </ul>

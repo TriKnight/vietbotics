@@ -57,7 +57,7 @@ const ApplicationRow = ({ app, lang, index }: { app: Application; lang: Lang; in
       <ContactButton
         lang={lang}
         topic={`${copy.cta}: ${app.title[lang]}`}
-        className="inline-flex items-center gap-2 rounded-lg border border-brand px-6 py-3 text-sm font-semibold text-brand hover:border-yellow-400 hover:bg-yellow-400 hover:text-black transition-colors"
+        className="inline-flex items-center gap-2 rounded-lg border border-brand px-6 py-3 text-sm font-semibold text-brand hover:border-cta hover:bg-cta hover:text-white transition-colors"
       >
         {copy.cta}
         <span aria-hidden>→</span>

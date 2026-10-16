@@ -149,7 +149,7 @@ const ContactDialog = ({ lang, topic, onClose }: { lang: Lang; topic: string; on
 
         {status === "sent" ? (
           <div className="py-10 text-center">
-            <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-yellow-400 text-black">
+            <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-cta text-white">
               <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
@@ -159,7 +159,7 @@ const ContactDialog = ({ lang, topic, onClose }: { lang: Lang; topic: string; on
             <button
               type="button"
               onClick={onClose}
-              className="rounded-lg bg-yellow-400 px-7 py-3 text-sm font-semibold text-black hover:bg-yellow-300 transition-colors"
+              className="rounded-lg bg-cta px-7 py-3 text-sm font-semibold text-white hover:bg-cta-hover transition-colors"
             >
               {copy.close}
             </button>
@@ -219,7 +219,7 @@ const ContactDialog = ({ lang, topic, onClose }: { lang: Lang; topic: string; on
               type="submit"
               disabled={status === "sending" || (needsCheck && !token)}
               title={needsCheck && !token ? copy.verifyHint : undefined}
-              className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-lg bg-yellow-400 px-7 py-3.5 text-sm font-semibold text-black hover:bg-yellow-300 disabled:opacity-60 transition-colors"
+              className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-lg bg-cta px-7 py-3.5 text-sm font-semibold text-white hover:bg-cta-hover disabled:opacity-60 transition-colors"
             >
               {status === "sending" ? copy.sending : copy.submit}
               {status !== "sending" && <span aria-hidden>→</span>}

@@ -25,7 +25,7 @@ const PageHero = ({ lang }: { lang: Lang }) => {
           <ContactButton
             lang={lang}
             topic={copy.primaryCta}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-yellow-400 px-7 py-3.5 text-sm font-semibold text-black hover:bg-yellow-300 transition-colors"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-cta px-7 py-3.5 text-sm font-semibold text-white hover:bg-cta-hover transition-colors"
           >
             {copy.primaryCta}
             <span aria-hidden>→</span>
@@ -73,7 +73,7 @@ const CommissioningProcess = ({ lang }: { lang: Lang }) => {
         <ContactButton
           lang={lang}
           topic={copy.cta}
-          className="inline-flex items-center justify-center gap-2 rounded-lg bg-yellow-400 px-7 py-3.5 text-sm font-semibold text-black hover:bg-yellow-300 transition-colors"
+          className="inline-flex items-center justify-center gap-2 rounded-lg bg-cta px-7 py-3.5 text-sm font-semibold text-white hover:bg-cta-hover transition-colors"
         >
           {copy.cta}
           <span aria-hidden>→</span>

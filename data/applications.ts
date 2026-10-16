@@ -34,7 +34,7 @@ export const applications: Application[] = [
     poster: `${VIDEO_DIR}/posters/1_bin_picking_1.5x.jpg`,
     title: { en: "Bin Picking", vn: "Gắp vật từ thùng" },
     description: {
-      en: "The collaborative arm share a compact cell, locating randomly placed parts with 3D vision and transferring them between bins without fixtures or manual teaching.",
+      en: "A collaborative arm works in a compact cell, locating randomly placed parts with 3D vision and transferring them between bins without fixtures or manual teaching.",
       vn: "Cánh tay robot cộng tác trong một trạm nhỏ gọn, định vị các chi tiết đặt ngẫu nhiên bằng thị giác 3D và chuyển chúng giữa các thùng mà không cần đồ gá hay dạy robot thủ công.",
     },
     features: {
@@ -59,19 +59,19 @@ export const applications: Application[] = [
     },
   },
   {
-    id: "container-unloading",
-    category: "logistics",
-    video: `${VIDEO_DIR}/720p/3_Unloading_container.webm`,
-    preview: `${VIDEO_DIR}/360p/3_Unloading_container.webm`,
-    poster: `${VIDEO_DIR}/posters/3_Unloading_container.jpg`,
-    title: { en: "Truck & Container Unloading", vn: "Dỡ hàng từ container" },
+    id: "bin-picking-amr",
+    category: "material-handling",
+    video: `${VIDEO_DIR}/720p/3_UR_and_AMR.webm`,
+    preview: `${VIDEO_DIR}/360p/3_UR_and_AMR.webm`,
+    poster: `${VIDEO_DIR}/posters/3_UR_and_AMR.jpg`,
+    title: { en: "Bin Picking with Automation Flow AMR", vn: "Gắp vật từ thùng kết hợp AMR" },
     description: {
-      en: "The robot works inside the container, detecting each carton in a mixed wall and placing it onto an extendable conveyor. This removes one of the most physically demanding jobs in the warehouse.",
-      vn: "Robot làm việc ngay trong container, nhận diện từng thùng carton trong khối hàng hỗn hợp và đặt lên băng tải. Robot thay con người đảm nhận một trong những công việc nặng nhọc nhất trong kho.",
+      en: "A UR10e picks parts from bins in the cell while an AMR docks, collects the finished bins and delivers them to the next station. Picking and transport run as one continuous flow with no manual handoff.",
+      vn: "Robot UR10e gắp chi tiết từ thùng tại trạm, trong khi AMR cập trạm, nhận thùng đã hoàn tất và vận chuyển đến trạm tiếp theo. Việc gắp và vận chuyển diễn ra liên tục mà không cần con người trung chuyển.",
     },
     features: {
-      en: ["Mixed-SKU Carton Detection", "Wall-by-wall Unloading", "Extendable Conveyor Integration", "Ergonomic Risk Reduction"],
-      vn: ["Nhận diện thùng hàng hỗn hợp", "Dỡ hàng theo từng lớp", "Tích hợp băng tải co giãn", "Giảm rủi ro lao động"],
+      en: ["3D Vision Bin Picking", "AMR Docking & Bin Transfer", "Station-to-Station Delivery", "Continuous Material Flow"],
+      vn: ["Gắp vật bằng thị giác 3D", "AMR cập trạm & chuyển thùng", "Vận chuyển giữa các trạm", "Dòng vật liệu liên tục"],
     },
   },
   {
@@ -131,11 +131,11 @@ export const applicationsCopy: Record<
     heading: string;
     subheading: string;
     featuredLabel: string;
-    cta: string;
     simTitle: string;
     simBody: string;
     simCta: string;
     simulatedNote: string;
+    viewAll: string;
   }
 > = {
   en: {
@@ -144,12 +144,12 @@ export const applicationsCopy: Record<
     subheading:
       "Every workflow below runs in our physics-accurate digital twin. We validate reach, cycle time and safety in simulation before a single robot is installed on your floor.",
     featuredLabel: "Featured application",
-    cta: "Request a demo",
     simTitle: "See how our robots handle your specific use case",
     simBody:
       "Send us a short clip or layout of your process, and we'll build a free digital-twin simulation of the automated cell.",
     simCta: "Request a free Digital Twin Commissioning",
     simulatedNote: "Digital Twin Commissioning",
+    viewAll: "Explore all applications",
   },
   vn: {
     eyebrow: "Ứng dụng",
@@ -157,11 +157,11 @@ export const applicationsCopy: Record<
     subheading:
       "Mọi quy trình dưới đây đều chạy trên nền tảng digital twin mô phỏng vật lý chính xác. Chúng tôi kiểm chứng tầm với, thời gian chu kỳ và an toàn trên mô phỏng trước khi lắp đặt robot tại nhà máy của bạn.",
     featuredLabel: "Ứng dụng nổi bật",
-    cta: "Yêu cầu Demo",
     simTitle: "Xem robot của chúng tôi xử lý bài toán của bạn",
     simBody:
       "Gửi cho chúng tôi một đoạn video ngắn hoặc bản vẽ mặt bằng quy trình, chúng tôi sẽ dựng mô phỏng digital twin miễn phí cho trạm tự động hóa.",
     simCta: "Yêu cầu mô phỏng miễn phí",
     simulatedNote: "Mô phỏng digital twin",
+    viewAll: "Khám phá tất cả ứng dụng",
   },
 };

@@ -7,7 +7,7 @@ import { FiMoon, FiSun } from "react-icons/fi";
 import { cn } from "@/utils/cn";
 import Logo from "./Logo";
 import type { Lang } from "@/data/applications";
-import { CONTACT_EMAIL, heroCopy, nav } from "@/data/home";
+import { CONTACT_EMAIL, heroCopy, localeHref, nav } from "@/data/home";
 
 const LanguageSwitch = ({ lang }: { lang: Lang }) => {
   const router = useRouter();
@@ -80,7 +80,7 @@ const SiteNav = ({ lang }: { lang: Lang }) => {
           {nav.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={localeHref(lang, item.href)}
               className="text-ink/80 hover:text-brand transition-colors"
             >
               {item.label[lang]}
@@ -125,7 +125,7 @@ const SiteNav = ({ lang }: { lang: Lang }) => {
             {nav.map((item) => (
               <a
                 key={item.href}
-                href={item.href}
+                href={localeHref(lang, item.href)}
                 onClick={() => setOpen(false)}
                 className="border-b border-line/5 py-3.5 text-base text-ink/90 hover:text-brand"
               >

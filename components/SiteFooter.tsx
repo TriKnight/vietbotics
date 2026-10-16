@@ -4,7 +4,7 @@ import type { Lang } from "@/data/applications";
 import { applications } from "@/data/applications";
 import { FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
 import type { IconType } from "react-icons";
-import { CONTACT_EMAIL, CONTACT_PHONE, footerCopy, nav, socialLinks } from "@/data/home";
+import { CONTACT_EMAIL, CONTACT_PHONE, footerCopy, localeHref, nav, socialLinks } from "@/data/home";
 
 const socialIcons: Record<string, IconType> = {
   LinkedIn: FaLinkedin,
@@ -66,7 +66,7 @@ const SiteFooter = ({ lang }: { lang: Lang }) => {
           <ul className="space-y-3">
             {nav.map((item) => (
               <li key={item.href}>
-                <a href={item.href} className="text-ink/80 hover:text-brand transition-colors">
+                <a href={localeHref(lang, item.href)} className="text-ink/80 hover:text-brand transition-colors">
                   {item.label[lang]}
                 </a>
               </li>
@@ -79,7 +79,7 @@ const SiteFooter = ({ lang }: { lang: Lang }) => {
           <ul className="space-y-3">
             {applications.map((app) => (
               <li key={app.id}>
-                <a href="#applications" className="text-ink/80 hover:text-brand transition-colors">
+                <a href={localeHref(lang, `/applications#${app.id}`)} className="text-ink/80 hover:text-brand transition-colors">
                   {app.title[lang]}
                 </a>
               </li>

@@ -13,7 +13,7 @@ import {
 import { CONTACT_EMAIL } from "@/data/home";
 
 // Plays the video only while it is on screen, so six 1080p clips don't all decode at once.
-const useAutoplayInView = (ref: React.RefObject<HTMLVideoElement>, src: string) => {
+export const useAutoplayInView = (ref: React.RefObject<HTMLVideoElement>, src: string) => {
   useEffect(() => {
     const video = ref.current;
     if (!video) return;
@@ -75,10 +75,10 @@ const FeaturedApplication = ({ app, lang }: { app: Application; lang: Lang }) =>
           ))}
         </ul>
         <a
-          href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(copy.cta)}`}
+          href={`/${lang}/applications`}
           className="inline-flex items-center gap-2 rounded-lg bg-yellow-400 px-6 py-3 text-sm font-semibold text-black hover:bg-yellow-300 transition-colors"
         >
-          {copy.cta}
+          {copy.viewAll}
           <span aria-hidden>→</span>
         </a>
       </div>

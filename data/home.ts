@@ -8,13 +8,16 @@ type Localized = Record<Lang, string>;
 export const CONTACT_EMAIL = "contact@openmindrobotics.com";
 export const CONTACT_PHONE = "(+84) 333-689-700";
 
+// Paths are relative to the locale root, so links work from every page: "/applications" -> /en/applications, "#technology" -> /en#technology
 export const nav: { href: string; label: Localized }[] = [
-  { href: "#applications", label: { en: "Applications", vn: "Ứng dụng" } },
+  { href: "/applications", label: { en: "Applications", vn: "Ứng dụng" } },
   { href: "#technology", label: { en: "Technology", vn: "Công nghệ" } },
   { href: "#why_us", label: { en: "Why Us", vn: "Ưu điểm" } },
   { href: "#partners", label: { en: "Partners", vn: "Đối tác" } },
   { href: "#contact_us", label: { en: "Contact", vn: "Liên hệ" } },
 ];
+
+export const localeHref = (lang: Lang, href: string) => `/${lang}${href}`;
 
 export const heroCopy: Record<
   Lang,

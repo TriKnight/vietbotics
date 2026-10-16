@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
+import SmartVideo from "./SmartVideo";
 import { cn } from "@/utils/cn";
 import SectionHeader from "./SectionHeader";
 import {
@@ -12,43 +13,14 @@ import {
 } from "@/data/applications";
 import { CONTACT_EMAIL } from "@/data/home";
 
-// Plays the video only while it is on screen, so six 1080p clips don't all decode at once.
-export const useAutoplayInView = (ref: React.RefObject<HTMLVideoElement>, src: string) => {
-  useEffect(() => {
-    const video = ref.current;
-    if (!video) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) video.play().catch(() => {});
-        else video.pause();
-      },
-      { threshold: 0.35 }
-    );
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, [ref, src]);
-};
-
 const FeaturedApplication = ({ app, lang }: { app: Application; lang: Lang }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const copy = applicationsCopy[lang];
   const category = categories.find((c) => c.id === app.category);
-  useAutoplayInView(videoRef, app.video);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
       <div className="lg:col-span-3 relative rounded-2xl overflow-hidden border border-line/10 bg-line/5 aspect-video">
-        <video
-          ref={videoRef}
-          key={app.id}
-          src={app.video}
-          poster={app.poster}
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="w-full h-full object-cover"
-        />
+        <SmartVideo src={app.video} hdSrc={app.hd} poster={app.poster} alt={app.title[lang]} className="h-full w-full" />
         <span className="absolute bottom-3 left-3 rounded-full bg-black/60 backdrop-blur px-3 py-1 text-xs text-neutral-100">
           {copy.simulatedNote}
         </span>
@@ -97,16 +69,10 @@ const ApplicationTile = ({
   active: boolean;
   onSelect: () => void;
 }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const category = categories.find((c) => c.id === app.category);
-
-  const play = () => videoRef.current?.play().catch(() => {});
-  const stop = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.pause();
-    video.currentTime = 0;
-  };
+  const [hovered, setHovered] = useState(false);
+  const play = () => setHovered(true);
+  const stop = () => setHovered(false);
 
   return (
     <button
@@ -125,15 +91,15 @@ const ApplicationTile = ({
       )}
     >
       <div className="relative aspect-video overflow-hidden">
-        <video
-          ref={videoRef}
+        <SmartVideo
           src={app.preview}
+          hdSrc={app.video}
           poster={app.poster}
-          muted
-          loop
-          playsInline
-          preload="none"
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          alt={app.title[lang]}
+          mode="on-demand"
+          active={hovered}
+          className="h-full w-full"
+          mediaClassName="transition-transform duration-500 group-hover:scale-105"
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
       </div>

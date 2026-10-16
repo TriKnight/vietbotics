@@ -2,6 +2,7 @@ import React from "react";
 import type { Lang } from "@/data/applications";
 import { DIGITAL_TWIN_VIDEO, digitalTwinBenefits, digitalTwinCopy } from "@/data/applicationsPage";
 import SectionHeader from "./SectionHeader";
+import SmartVideo from "./SmartVideo";
 
 const DigitalTwinIntro = ({ lang }: { lang: Lang }) => {
   const copy = digitalTwinCopy[lang];
@@ -13,15 +14,11 @@ const DigitalTwinIntro = ({ lang }: { lang: Lang }) => {
       <figure className="mx-auto max-w-6xl">
         {/* Split-screen source: simulation on the left half, the physical robot on the right */}
         <div className="relative overflow-hidden rounded-2xl border border-line/10 bg-black aspect-[1280/504] shadow-xl dark:shadow-none">
-          <video
+          <SmartVideo
             src={DIGITAL_TWIN_VIDEO.src}
             poster={DIGITAL_TWIN_VIDEO.poster}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="h-full w-full object-cover"
+            alt={copy.caption}
+            className="h-full w-full"
           />
           <span className="absolute left-3 top-3 rounded-full bg-black/60 backdrop-blur px-3 py-1 text-[11px] sm:text-xs font-medium text-neutral-100">
             <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-yellow-400 align-middle" aria-hidden />

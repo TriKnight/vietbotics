@@ -7,7 +7,10 @@ type Localized = Record<Lang, string>;
 export interface Application {
   id: string;
   category: CategoryId;
+  // Paths without extension: each has a .webm and an .mp4 rendition (see components/SmartVideo)
   video: string;
+  // 1280px copy for the large featured player on the home page
+  hd: string;
   // Low-res copy for the hover previews on the small tiles
   preview: string;
   poster: string;
@@ -18,7 +21,7 @@ export interface Application {
   features: Record<Lang, string[]>;
 }
 
-const VIDEO_DIR = "/videos/digital_twins";
+const VIDEO_DIR = "/videos/web";
 
 export const categories: { id: CategoryId | "all"; label: Localized }[] = [
   { id: "all", label: { en: "All Applications", vn: "Tất cả ứng dụng" } },
@@ -31,12 +34,13 @@ export const applications: Application[] = [
   {
     id: "bin-picking",
     category: "material-handling",
-    video: `${VIDEO_DIR}/720p/1_bin_picking_1.5x.webm`,
-    preview: `${VIDEO_DIR}/360p/1_bin_picking_1.5x.webm`,
-    poster: `${VIDEO_DIR}/posters/1_bin_picking_1.5x.jpg`,
+    video: `${VIDEO_DIR}/1_bin_picking_1.5x`,
+    hd: `${VIDEO_DIR}/hd/1_bin_picking_1.5x`,
+    preview: `${VIDEO_DIR}/preview/1_bin_picking_1.5x`,
+    poster: `${VIDEO_DIR}/posters/1_bin_picking_1.5x.webp`,
     real: {
-      video: `${VIDEO_DIR}/720p/1_real_ur10e_bin_picking.webm`,
-      poster: `${VIDEO_DIR}/posters/1_real_ur10e_bin_picking.jpg`,
+      video: `${VIDEO_DIR}/1_real_ur10e_bin_picking`,
+      poster: `${VIDEO_DIR}/posters/1_real_ur10e_bin_picking.webp`,
     },
     title: { en: "Bin Picking", vn: "Gắp vật từ thùng" },
     description: {
@@ -51,12 +55,13 @@ export const applications: Application[] = [
   {
     id: "bin-picking-amr",
     category: "material-handling",
-    video: `${VIDEO_DIR}/720p/3_UR_and_AMR.webm`,
-    preview: `${VIDEO_DIR}/360p/3_UR_and_AMR.webm`,
-    poster: `${VIDEO_DIR}/posters/3_UR_and_AMR.jpg`,
+    video: `${VIDEO_DIR}/3_UR_and_AMR`,
+    hd: `${VIDEO_DIR}/hd/3_UR_and_AMR`,
+    preview: `${VIDEO_DIR}/preview/3_UR_and_AMR`,
+    poster: `${VIDEO_DIR}/posters/3_UR_and_AMR.webp`,
     real: {
-      video: `${VIDEO_DIR}/720p/3_real_UR_AMR.webm`,
-      poster: `${VIDEO_DIR}/posters/3_real_UR_AMR.jpg`,
+      video: `${VIDEO_DIR}/3_real_UR_AMR`,
+      poster: `${VIDEO_DIR}/posters/3_real_UR_AMR.webp`,
     },
     title: { en: "Picking with Automation Flow AMR — Pilot Project with Gradion", vn: "Gắp vật từ thùng kết hợp AMR" },
     description: {
@@ -71,9 +76,10 @@ export const applications: Application[] = [
   {
     id: "mobile-palletizing",
     category: "logistics",
-    video: `${VIDEO_DIR}/720p/2_Palletizing.webm`,
-    preview: `${VIDEO_DIR}/360p/2_Palletizing.webm`,
-    poster: `${VIDEO_DIR}/posters/2_Palletizing.jpg`,
+    video: `${VIDEO_DIR}/2_Palletizing`,
+    hd: `${VIDEO_DIR}/hd/2_Palletizing`,
+    preview: `${VIDEO_DIR}/preview/2_Palletizing`,
+    poster: `${VIDEO_DIR}/posters/2_Palletizing.webp`,
     title: { en: "Mobile Unloading & Palletizing", vn: "Dỡ hàng & xếp pallet di động" },
     description: {
       en: "An autonomous mobile manipulator picks cartons from the conveyor and builds stable pallet patterns, moving between stations as demand shifts across the line.",
@@ -87,9 +93,10 @@ export const applications: Application[] = [
   {
     id: "column-palletizing",
     category: "logistics",
-    video: `${VIDEO_DIR}/720p/4_palletizing.webm`,
-    preview: `${VIDEO_DIR}/360p/4_palletizing.webm`,
-    poster: `${VIDEO_DIR}/posters/4_palletizing.jpg`,
+    video: `${VIDEO_DIR}/4_palletizing`,
+    hd: `${VIDEO_DIR}/hd/4_palletizing`,
+    preview: `${VIDEO_DIR}/preview/4_palletizing`,
+    poster: `${VIDEO_DIR}/posters/4_palletizing.webp`,
     title: { en: "Dual-station Palletizing", vn: "Xếp pallet hai trạm" },
     description: {
       en: "A cobot on a vertical lift column serves left and right pallets, so a full pallet can be swapped out while the robot keeps stacking on the other side.",
@@ -103,9 +110,10 @@ export const applications: Application[] = [
   {
     id: "engine-inspection",
     category: "inspection",
-    video: `${VIDEO_DIR}/720p/5_inspection.webm`,
-    preview: `${VIDEO_DIR}/360p/5_inspection.webm`,
-    poster: `${VIDEO_DIR}/posters/5_inspection.jpg`,
+    video: `${VIDEO_DIR}/5_inspection`,
+    hd: `${VIDEO_DIR}/hd/5_inspection`,
+    preview: `${VIDEO_DIR}/preview/5_inspection`,
+    poster: `${VIDEO_DIR}/posters/5_inspection.webp`,
     title: { en: "Engine Crack Inspection", vn: "Kiểm tra vết nứt động cơ" },
     description: {
       en: "A mobile robot scans an engine block from multiple viewpoints, fusing RGB and depth data to detect surface cracks and defects that are hard to catch by eye.",
@@ -119,9 +127,10 @@ export const applications: Application[] = [
   {
     id: "mobile-manipulation",
     category: "material-handling",
-    video: `${VIDEO_DIR}/720p/6_ur10e_mobile_manipulation.webm`,
-    preview: `${VIDEO_DIR}/360p/6_ur10e_mobile_manipulation.webm`,
-    poster: `${VIDEO_DIR}/posters/6_ur10e_mobile_manipulation.jpg`,
+    video: `${VIDEO_DIR}/6_ur10e_mobile_manipulation`,
+    hd: `${VIDEO_DIR}/hd/6_ur10e_mobile_manipulation`,
+    preview: `${VIDEO_DIR}/preview/6_ur10e_mobile_manipulation`,
+    poster: `${VIDEO_DIR}/posters/6_ur10e_mobile_manipulation.webp`,
     title: { en: "Mobile Manipulation & Bin Picking", vn: "Robot di động gắp vật từ thùng" },
     description: {
       en: "A UR10e on an autonomous mobile base travels to the line, picks parts from bins and feeds the next process, bringing flexible automation to brownfield factories.",

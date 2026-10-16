@@ -1,22 +1,19 @@
 import React from "react";
 import type { Lang } from "@/data/applications";
 import { CONTACT_EMAIL, heroCopy } from "@/data/home";
+import SmartVideo from "./SmartVideo";
 
 const HeroBanner = ({ lang }: { lang: Lang }) => {
   const copy = heroCopy[lang];
 
   return (
     <section className="relative isolate overflow-hidden rounded-3xl border border-line/10 mt-24 md:mt-28 min-h-[640px] md:min-h-[720px] flex items-center">
-      <video
-        src="/videos/intro-optimized.mp4"
-        poster="/videos/intro-poster.jpg"
-        preload="auto"
-        autoPlay
-        loop
-        muted
-        playsInline
-        aria-hidden
-        className="absolute inset-0 -z-20 h-full w-full object-cover scale-[1.15] opacity-90"
+      <SmartVideo
+        src="/videos/web/intro"
+        poster="/videos/web/posters/intro.webp"
+        mode="eager"
+        className="absolute inset-0 -z-20 opacity-90"
+        mediaClassName="scale-[1.15]"
       />
       {/* The source video has letterbox bars baked in; scale-[1.15] crops them. A soft dark glow behind the centred text keeps it readable while the rest of the video stays bright */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,var(--hero-glow-center)_0%,var(--hero-glow-edge)_70%)]" />

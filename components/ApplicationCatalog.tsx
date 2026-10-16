@@ -1,8 +1,8 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { cn } from "@/utils/cn";
 import SectionHeader from "./SectionHeader";
-import { useAutoplayInView } from "./Applications";
+import SmartVideo from "./SmartVideo";
 import { Application, CategoryId, Lang, applications, categories } from "@/data/applications";
 import { catalogCopy } from "@/data/applicationsPage";
 import { CONTACT_EMAIL } from "@/data/home";
@@ -19,29 +19,15 @@ const CatalogVideo = ({
   badge: string;
   dot: string;
   className?: string;
-}) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  useAutoplayInView(videoRef, src);
-
-  return (
-    <div className={cn("relative rounded-2xl overflow-hidden border border-line/10 bg-line/5 aspect-video", className)}>
-      <video
-        ref={videoRef}
-        src={src}
-        poster={poster}
-        muted
-        loop
-        playsInline
-        preload="none"
-        className="w-full h-full object-cover"
-      />
-      <span className="absolute bottom-3 left-3 rounded-full bg-black/60 backdrop-blur px-3 py-1 text-xs text-neutral-100">
-        <span className={cn("mr-1.5 inline-block h-1.5 w-1.5 rounded-full align-middle", dot)} aria-hidden />
-        {badge}
-      </span>
-    </div>
-  );
-};
+}) => (
+  <div className={cn("relative rounded-2xl overflow-hidden border border-line/10 bg-line/5 aspect-video", className)}>
+    <SmartVideo src={src} poster={poster} alt={badge} className="h-full w-full" />
+    <span className="absolute bottom-3 left-3 rounded-full bg-black/60 backdrop-blur px-3 py-1 text-xs text-neutral-100">
+      <span className={cn("mr-1.5 inline-block h-1.5 w-1.5 rounded-full align-middle", dot)} aria-hidden />
+      {badge}
+    </span>
+  </div>
+);
 
 const ApplicationRow = ({ app, lang, index }: { app: Application; lang: Lang; index: number }) => {
   const copy = catalogCopy[lang];

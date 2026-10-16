@@ -6,8 +6,8 @@ import { applications, type Lang } from "./applications";
 type Localized = Record<Lang, string>;
 
 export const DIGITAL_TWIN_VIDEO = {
-  src: "/videos/digital_twins/DigitalTwins.webm",
-  poster: "/videos/digital_twins/posters/DigitalTwins.jpg",
+  src: "/videos/web/DigitalTwins",
+  poster: "/videos/web/posters/DigitalTwins.webp",
 };
 
 export const pageMeta: Record<Lang, { title: string; description: string }> = {

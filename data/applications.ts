@@ -63,7 +63,7 @@ export const applications: Application[] = [
       video: `${VIDEO_DIR}/3_real_UR_AMR`,
       poster: `${VIDEO_DIR}/posters/3_real_UR_AMR.webp`,
     },
-    title: { en: "Picking with Automation Flow AMR — Pilot Project with Gradion", vn: "Gắp vật từ thùng kết hợp AMR" },
+    title: { en: "Picking with Automation Flow AMR", vn: "Gắp vật từ thùng kết hợp AMR" },
     description: {
       en: "A pilot project with Gradion demonstrating AI-powered bin picking integrated with autonomous material flow. A robot picks parts from bins while an AMR autonomously docks, collects finished bins, and delivers them to the next station. ",
       vn: "Dự án kết hợp với Gradion, Robot tích hợp AI gắp chi tiết từ thùng tại trạm, trong khi AMR cập trạm, nhận thùng đã hoàn tất và vận chuyển đến trạm tiếp theo. Việc gắp và vận chuyển diễn ra liên tục mà không cần con người trung chuyển.",

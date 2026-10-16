@@ -32,7 +32,7 @@ export const pageHeroCopy: Record<
     heading: "Robotic automation, proven before it is installed",
     subheading:
       "Explore the robot cells we deliver for material handling, logistics and quality inspection. Each one is designed, programmed and validated in a digital twin of your facility, so you know how it will perform before you invest.",
-    primaryCta: "Request a free simulation",
+    primaryCta: "Request a Digital Twin Commissioning",
     secondaryCta: "Browse applications",
   },
   vn: {
@@ -144,7 +144,7 @@ export const catalogCopy: Record<
     subheading:
       "Filter by solution area to find the cell closest to your process. Every application can be adapted to your parts, your robot brand and your floor space.",
     cta: "Discuss this application",
-    videoBadge: "Digital Twin simulation",
+    videoBadge: "Digital Twin Commissioning",
     realBadge: "Real robot",
   },
   vn: {
@@ -153,7 +153,7 @@ export const catalogCopy: Record<
     subheading:
       "Lọc theo lĩnh vực để tìm giải pháp gần nhất với quy trình của bạn. Mọi ứng dụng đều có thể điều chỉnh theo chi tiết sản phẩm, hãng robot và diện tích nhà xưởng của bạn.",
     cta: "Tư vấn ứng dụng này",
-    videoBadge: "Mô phỏng Digital Twin",
+    videoBadge: "Digital Twin Commissioning",
     realBadge: "Robot thực tế",
   },
 };

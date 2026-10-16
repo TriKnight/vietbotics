@@ -28,10 +28,15 @@ const Technology = ({ lang }: { lang: Lang }) => {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
             </div>
             <div className="flex flex-1 flex-col p-6">
-              <p className="text-xs font-semibold tracking-[0.2em] text-brand mb-2">
+              <p className="text-xs font-semibold tracking-[0.2em] text-gray-700 dark:text-brand mb-2">
                 {String(i + 1).padStart(2, "0")}
               </p>
-              <h3 className="font-display text-xl md:text-2xl font-semibold tracking-[-0.01em] text-ink mb-3">{tech.title[lang]}</h3>
+              <div className="mb-3">
+                <h3 className="font-display text-xl md:text-2xl font-semibold tracking-[-0.01em] text-ink">{tech.title[lang]}</h3>
+                {tech.subtitle && (
+                  <p className="mt-1 text-sm font-medium uppercase tracking-[0.12em] text-cta dark:text-brand">{tech.subtitle[lang]}</p>
+                )}
+              </div>
               <p className="text-body leading-relaxed mb-5">{tech.description[lang]}</p>
               <ul className="mt-auto space-y-2 border-t border-line/10 pt-5">
                 {tech.points[lang].map((point) => (

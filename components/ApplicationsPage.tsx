@@ -15,7 +15,7 @@ const PageHero = ({ lang }: { lang: Lang }) => {
     <section className="relative isolate overflow-hidden rounded-3xl border border-line/10 bg-surface mt-24 md:mt-28 px-6 py-16 md:px-12 md:py-24">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgb(var(--brand)/0.12)_0%,transparent_60%)]" />
       <div className="mx-auto max-w-4xl text-center">
-        <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-brand mb-5">{copy.eyebrow}</p>
+        <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-gray-700 dark:text-brand mb-5">{copy.eyebrow}</p>
         <h1 className="font-display text-4xl sm:text-6xl font-semibold tracking-[-0.03em] text-heading-gradient pb-3 text-balance">
           {copy.heading}
         </h1>

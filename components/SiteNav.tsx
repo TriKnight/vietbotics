@@ -25,7 +25,7 @@ const LanguageSwitch = ({ lang }: { lang: Lang }) => {
   };
 
   return (
-    <div className="flex items-center rounded-lg border border-line/15 p-0.5 text-xs font-semibold">
+    <div className="flex shrink-0 items-center rounded-lg border border-line/15 p-0.5 text-xs font-semibold">
       {(["en", "vn"] as Lang[]).map((l) => (
         <button
           key={l}
@@ -62,7 +62,7 @@ const ThemeToggle = ({ lang }: { lang: Lang }) => {
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label={label}
       title={label}
-      className="flex h-10 w-10 items-center justify-center rounded-lg border border-line/15 text-ink hover:bg-line/5 transition-colors"
+      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-line/15 text-ink hover:bg-line/5 transition-colors"
     >
       {mounted ? isDark ? <FiSun size={18} /> : <FiMoon size={18} /> : <span className="h-[18px] w-[18px]" />}
     </button>
@@ -74,14 +74,14 @@ const SiteNav = ({ lang }: { lang: Lang }) => {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line/10 bg-page/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 md:h-20 max-w-7xl items-center justify-between px-5 sm:px-10">
+      <div className="mx-auto flex h-16 md:h-20 max-w-7xl items-center justify-between gap-6 px-5 sm:px-10">
         <a href={`/${lang}`} className="shrink-0" aria-label="OpenMind Robotics">
           <Logo id="nav-logo" className="h-10 md:h-12 w-auto text-ink" />
         </a>
 
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-6 text-sm font-medium">
           {nav.map((item) => (
-            <NavLink key={item.href} lang={lang} item={item} className="text-ink/80 hover:text-brand transition-colors" />
+            <NavLink key={item.href} lang={lang} item={item} className="whitespace-nowrap text-ink/80 hover:text-brand transition-colors" />
           ))}
         </nav>
 
@@ -92,7 +92,7 @@ const SiteNav = ({ lang }: { lang: Lang }) => {
           <ContactButton
             lang={lang}
             topic={heroCopy[lang].primaryCta}
-            className="rounded-lg bg-cta px-5 py-2.5 text-sm font-semibold text-white hover:bg-cta-hover transition-colors"
+            className="whitespace-nowrap rounded-lg bg-cta px-5 py-2.5 text-sm font-semibold text-white hover:bg-cta-hover transition-colors"
           >
             {heroCopy[lang].primaryCta}
           </ContactButton>

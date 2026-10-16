@@ -35,7 +35,7 @@ const ApplicationRow = ({ app, lang, index }: { app: Application; lang: Lang; in
 
   const heading = (
     <>
-      <p className="text-xs uppercase tracking-[0.2em] text-brand mb-3">
+      <p className="text-xs uppercase tracking-[0.2em] text-gray-700 dark:text-brand mb-3">
         {String(index + 1).padStart(2, "0")} · {category?.label[lang]}
       </p>
       <h3 className="font-display text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-ink mb-4 text-balance">

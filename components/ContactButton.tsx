@@ -166,7 +166,7 @@ const ContactDialog = ({ lang, topic, onClose }: { lang: Lang; topic: string; on
           </div>
         ) : (
           <form onSubmit={submit}>
-            <p className="pr-10 text-xs font-semibold uppercase tracking-[0.2em] text-brand mb-2">{topic}</p>
+            <p className="pr-10 text-xs font-semibold uppercase tracking-[0.2em] text-gray-700 dark:text-brand mb-2">{topic}</p>
             <h2 id="contact-dialog-title" className="font-display text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-ink mb-2">
               {copy.heading}
             </h2>

@@ -27,7 +27,7 @@ const FeaturedApplication = ({ app, lang }: { app: Application; lang: Lang }) =>
       </div>
 
       <div className="lg:col-span-2">
-        <p className="text-xs uppercase tracking-[0.2em] text-brand mb-3">
+        <p className="text-xs uppercase tracking-[0.2em] text-gray-700 dark:text-brand mb-3">
           {copy.featuredLabel} · {category?.label[lang]}
         </p>
         <h3 className="font-display text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-ink mb-4 text-balance">

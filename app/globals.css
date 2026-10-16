@@ -36,8 +36,8 @@
     --brand: 180 83 9;
     --cta: 45 100 156; /* OpenMind logo blue (#2d649c) */
     --cta-hover: 36 82 130;
-    --heading-from: #111827;
-    --heading-to: #92400e;
+    --heading-from: #143254; /* logo navy */
+    --heading-to: #2d649c; /* logo blue */
     --hero-glow-center: rgba(245, 245, 247, 0.82);
     --hero-glow-edge: rgba(245, 245, 247, 0.2);
   }

@@ -11,10 +11,11 @@ export const CONTACT_PHONE = "(+84) 333-689-700";
 // Paths are relative to the locale root, so links work from every page: "/applications" -> /en/applications, "#technology" -> /en#technology
 // `form: true` opens the contact form instead of following the link
 export const nav: { href: string; label: Localized; form?: boolean }[] = [
-  { href: "/applications", label: { en: "Applications", vn: "Ứng dụng" } },
+  { href: "/applications", label: { en: "Solutions", vn: "Giải pháp" } },
   { href: "#technology", label: { en: "Technology", vn: "Công nghệ" } },
   { href: "#why_us", label: { en: "Why Us", vn: "Ưu điểm" } },
   { href: "#partners", label: { en: "Partners", vn: "Đối tác" } },
+  { href: "/news", label: { en: "News", vn: "Tin tức" } },
   { href: "#contact_us", label: { en: "Contact", vn: "Liên hệ" }, form: true },
 ];
 
@@ -62,27 +63,31 @@ export const technologyCopy: Record<Lang, { eyebrow: string; heading: string; su
 export const technologies: {
   image: string;
   title: Localized;
+  // Product category shown under the title, e.g. "AI Vision System"
+  subtitle?: Localized;
   description: Localized;
   points: Record<Lang, string[]>;
 }[] = [
   {
-    image: "/picking.png",
-    title: { en: "AI-Powered Picking & Placing", vn: "Gắp và đặt vật bằng AI" },
+    image: "/AIparts2.png",
+    title: { en: "OM-Eye™", vn: "OM-Eye™" },
+    subtitle: { en: "AI Vision System", vn: "Hệ thống thị giác AI" },
     description: {
-      en: "Grasp planning that handles randomly oriented, mixed and reflective parts straight from bins and conveyors.",
-      vn: "Lập kế hoạch gắp xử lý được các chi tiết đặt ngẫu nhiên, hỗn hợp và phản quang, trực tiếp từ thùng và băng tải.",
+      en: "Our high-precision 3D AI vision system, engineered for cognitive awareness, real-time spatial processing and adaptive object recognition in dynamic factory environments.",
+      vn: "Hệ thống thị giác AI 3D độ chính xác cao, được thiết kế cho khả năng nhận thức, xử lý không gian thời gian thực và nhận dạng vật thể thích ứng trong môi trường nhà máy biến động.",
     },
     points: {
-      en: ["Multi-strategy grasp evaluation", "Collision-free trajectory planning", "No CAD model required"],
-      vn: ["Đánh giá nhiều chiến lược gắp", "Lập quỹ đạo không va chạm", "Không bắt buộc mô hình CAD"],
+      en: ["Zero-shot recognition, no CAD model required", "3D point-cloud localization", "Instance segmentation in clutter"],
+      vn: ["Nhận dạng zero-shot, không cần mô hình CAD", "Định vị bằng đám mây điểm 3D", "Phân đoạn vật thể trong môi trường lộn xộn"],
     },
   },
   {
     image: "/digitaltwin_ur.png",
-    title: { en: "Digital Twin Platform", vn: "Nền tảng Digital Twin" },
+    title: { en: "OM-Twin™", vn: "OM-Twin™" },
+    subtitle: { en: "Digital Twins Framework", vn: "Khung Bản sao kỹ thuật số" },
     description: {
-      en: "A real-time virtual replica of your cell, built on ISO 23247 and connected over OPC UA, so you can design, test and monitor before and after deployment.",
-      vn: "Bản sao ảo thời gian thực của trạm robot, xây dựng theo ISO 23247 và kết nối qua OPC UA, giúp thiết kế, kiểm thử và giám sát trước và sau khi triển khai.",
+      en: "A Digital Twins Framework real-time virtual replica of your cell, built on ISO 23247 and connected over OPC UA, so you can design, test and monitor before and after deployment.",
+      vn: "Bản sao kỹ thuật số thời gian thực của trạm robot, xây dựng theo ISO 23247 và kết nối qua OPC UA, giúp thiết kế, kiểm thử và giám sát trước và sau khi triển khai.",
     },
     points: {
       en: ["Sim-to-real motion fidelity", "Predictive maintenance insights", "Cloud-based remote monitoring"],
@@ -90,15 +95,16 @@ export const technologies: {
     },
   },
   {
-    image: "/AIparts2.png",
-    title: { en: "Vision-Embodied AI", vn: "AI thị giác tích hợp" },
+    image: "/picking.png",
+    title: { en: "OM-Brain™", vn: "OM-Brain™" },
+    subtitle: { en: "Universal Control Framework", vn: "Nền tảng điều khiển đa năng" },
     description: {
-      en: "3D perception models that segment, localize and understand objects in cluttered scenes, then hand that understanding directly to the robot.",
-      vn: "Mô hình nhận thức 3D phân đoạn, định vị và hiểu vật thể trong môi trường lộn xộn, rồi chuyển trực tiếp thông tin đó cho robot.",
+      en: "Our adaptable open manipulation architecture, built to deliver seamless, cross-embodiment, intelligent robot control and task execution across industrial workflows.",
+      vn: "Kiến trúc thao tác mở, linh hoạt, mang lại khả năng điều khiển robot thông minh, liền mạch trên nhiều nền tảng robot khác nhau (cross-embodiment) và thực thi tác vụ trên mọi quy trình công nghiệp.",
     },
     points: {
-      en: ["Instance segmentation in clutter", "3D point-cloud localization", "Continuous learning on site"],
-      vn: ["Phân đoạn vật thể trong môi trường lộn xộn", "Định vị bằng đám mây điểm 3D", "Học liên tục tại hiện trường"],
+      en: ["Cross-embodiment: one brain for any robot brand", "Multi-strategy grasp planning", "Collision-free trajectory generation"],
+      vn: ["Cross-embodiment: một bộ não cho mọi hãng robot", "Lập kế hoạch gắp đa chiến lược", "Tạo quỹ đạo không va chạm"],
     },
   },
 ];

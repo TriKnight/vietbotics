@@ -6,6 +6,7 @@ import Applications from "./Applications";
 import Technology from "./Technology";
 import WhyUs from "./WhyUs";
 import Partners from "./Partners";
+import LatestNews from "./LatestNews";
 import SiteFooter from "./SiteFooter";
 
 const HomePage = ({ lang }: { lang: Lang }) => (
@@ -16,6 +17,7 @@ const HomePage = ({ lang }: { lang: Lang }) => (
     <Technology lang={lang} />
     <WhyUs lang={lang} />
     <Partners lang={lang} />
+    <LatestNews lang={lang} />
     <SiteFooter lang={lang} />
   </>
 );

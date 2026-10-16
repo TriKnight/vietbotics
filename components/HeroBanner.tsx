@@ -21,13 +21,13 @@ const HeroBanner = ({ lang }: { lang: Lang }) => {
       <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-page/80 to-transparent" />
 
       <div className="w-full px-6 py-20 md:px-12 flex flex-col items-center text-center">
-        <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-brand dark:text-yellow-300 mb-6 dark:drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]">
+        <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-gray-700 dark:text-yellow-300 mb-6 dark:drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]">
           {copy.eyebrow}
         </p>
         <h1 className="dark:drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] font-display text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-[-0.03em] text-heading-gradient pb-3">
           OpenMind Robotics
         </h1>
-        <p className="dark:drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] mt-2 font-display text-xl sm:text-3xl font-semibold uppercase tracking-[0.12em] text-brand">
+        <p className="dark:drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] mt-2 font-display text-xl sm:text-3xl font-semibold uppercase tracking-[0.12em] text-[#1b416b] dark:text-brand">
           {copy.tagline}
         </p>
         <p className="dark:drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)] mt-6 max-w-2xl text-ink text-base md:text-lg leading-relaxed">

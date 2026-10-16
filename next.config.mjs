@@ -13,7 +13,7 @@ const nextConfig = {
     minimumCacheTTL: 604800,
   },
   async headers() {
-    return ['/videos/:path*', '/logos/:path*', '/logo_openmind/:path*'].map((source) => ({
+    return ['/videos/:path*', '/logos/:path*', '/logo_openmind/:path*', '/news-media/:path*'].map((source) => ({
       source,
       headers: mediaCache,
     }));

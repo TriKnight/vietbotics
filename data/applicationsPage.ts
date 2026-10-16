@@ -47,7 +47,7 @@ export const pageHeroCopy: Record<
 
 export const pageStats: { value: string; label: Localized }[] = [
   { value: String(applications.length), label: { en: "Proven applications", vn: "Ứng dụng đã kiểm chứng" } },
-  { value: "3", label: { en: "Solution areas", vn: "Lĩnh vực giải pháp" } },
+  { value: "Unlimited", label: { en: "Solution areas", vn: "Lĩnh vực giải pháp" } },
   { value: "ISO 23247", label: { en: "Digital twin framework", vn: "Khung tiêu chuẩn digital twin" } },
   { value: "OPC UA", label: { en: "Real-time connectivity", vn: "Kết nối thời gian thực" } },
 ];
@@ -136,7 +136,7 @@ export const digitalTwinBenefits: { icon: IconType; title: Localized; descriptio
 
 export const catalogCopy: Record<
   Lang,
-  { eyebrow: string; heading: string; subheading: string; cta: string; videoBadge: string }
+  { eyebrow: string; heading: string; subheading: string; cta: string; videoBadge: string; realBadge: string }
 > = {
   en: {
     eyebrow: "Solutions",
@@ -145,6 +145,7 @@ export const catalogCopy: Record<
       "Filter by solution area to find the cell closest to your process. Every application can be adapted to your parts, your robot brand and your floor space.",
     cta: "Discuss this application",
     videoBadge: "Digital Twin simulation",
+    realBadge: "Real robot",
   },
   vn: {
     eyebrow: "Giải pháp",
@@ -153,6 +154,7 @@ export const catalogCopy: Record<
       "Lọc theo lĩnh vực để tìm giải pháp gần nhất với quy trình của bạn. Mọi ứng dụng đều có thể điều chỉnh theo chi tiết sản phẩm, hãng robot và diện tích nhà xưởng của bạn.",
     cta: "Tư vấn ứng dụng này",
     videoBadge: "Mô phỏng Digital Twin",
+    realBadge: "Robot thực tế",
   },
 };
 

@@ -7,61 +7,103 @@ import { Application, CategoryId, Lang, applications, categories } from "@/data/
 import { catalogCopy } from "@/data/applicationsPage";
 import { CONTACT_EMAIL } from "@/data/home";
 
-const ApplicationRow = ({ app, lang, index }: { app: Application; lang: Lang; index: number }) => {
+const CatalogVideo = ({
+  src,
+  poster,
+  badge,
+  dot,
+  className,
+}: {
+  src: string;
+  poster: string;
+  badge: string;
+  dot: string;
+  className?: string;
+}) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  useAutoplayInView(videoRef, src);
+
+  return (
+    <div className={cn("relative rounded-2xl overflow-hidden border border-line/10 bg-line/5 aspect-video", className)}>
+      <video
+        ref={videoRef}
+        src={src}
+        poster={poster}
+        muted
+        loop
+        playsInline
+        preload="none"
+        className="w-full h-full object-cover"
+      />
+      <span className="absolute bottom-3 left-3 rounded-full bg-black/60 backdrop-blur px-3 py-1 text-xs text-neutral-100">
+        <span className={cn("mr-1.5 inline-block h-1.5 w-1.5 rounded-full align-middle", dot)} aria-hidden />
+        {badge}
+      </span>
+    </div>
+  );
+};
+
+const ApplicationRow = ({ app, lang, index }: { app: Application; lang: Lang; index: number }) => {
   const copy = catalogCopy[lang];
   const category = categories.find((c) => c.id === app.category);
-  useAutoplayInView(videoRef, app.video);
+
+  const heading = (
+    <>
+      <p className="text-xs uppercase tracking-[0.2em] text-brand mb-3">
+        {String(index + 1).padStart(2, "0")} · {category?.label[lang]}
+      </p>
+      <h3 className="font-display text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-ink mb-4 text-balance">
+        {app.title[lang]}
+      </h3>
+      <p className="text-body text-base md:text-lg leading-relaxed mb-6">{app.description[lang]}</p>
+    </>
+  );
+  const details = (
+    <>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-8">
+        {app.features[lang].map((feature) => (
+          <li key={feature} className="flex items-start gap-2.5 text-sm md:text-base text-ink/90">
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-yellow-400" aria-hidden />
+            {feature}
+          </li>
+        ))}
+      </ul>
+      <a
+        href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`${copy.cta}: ${app.title[lang]}`)}`}
+        className="inline-flex items-center gap-2 rounded-lg border border-brand px-6 py-3 text-sm font-semibold text-brand hover:border-yellow-400 hover:bg-yellow-400 hover:text-black transition-colors"
+      >
+        {copy.cta}
+        <span aria-hidden>→</span>
+      </a>
+    </>
+  );
+  const sim = <CatalogVideo src={app.video} poster={app.poster} badge={copy.videoBadge} dot="bg-yellow-400" />;
+
+  // With real footage the two videos get the full width side by side, and the text sits underneath
+  if (app.real) {
+    return (
+      <article id={app.id} className="scroll-mt-28">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+          {sim}
+          <CatalogVideo src={app.real.video} poster={app.real.poster} badge={copy.realBadge} dot="bg-emerald-400" />
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-14 lg:items-start">
+          <div>{heading}</div>
+          <div className="lg:pt-8">{details}</div>
+        </div>
+      </article>
+    );
+  }
 
   return (
     <article
       id={app.id}
       className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center scroll-mt-28"
     >
-      <div
-        className={cn(
-          "relative rounded-2xl overflow-hidden border border-line/10 bg-line/5 aspect-video",
-          index % 2 === 1 && "lg:order-2"
-        )}
-      >
-        <video
-          ref={videoRef}
-          src={app.video}
-          poster={app.poster}
-          muted
-          loop
-          playsInline
-          preload="none"
-          className="w-full h-full object-cover"
-        />
-        <span className="absolute bottom-3 left-3 rounded-full bg-black/60 backdrop-blur px-3 py-1 text-xs text-neutral-100">
-          {copy.videoBadge}
-        </span>
-      </div>
-
+      <div className={cn(index % 2 === 1 && "lg:order-2")}>{sim}</div>
       <div>
-        <p className="text-xs uppercase tracking-[0.2em] text-brand mb-3">
-          {String(index + 1).padStart(2, "0")} · {category?.label[lang]}
-        </p>
-        <h3 className="font-display text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-ink mb-4 text-balance">
-          {app.title[lang]}
-        </h3>
-        <p className="text-body text-base md:text-lg leading-relaxed mb-6">{app.description[lang]}</p>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-8">
-          {app.features[lang].map((feature) => (
-            <li key={feature} className="flex items-start gap-2.5 text-sm md:text-base text-ink/90">
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-yellow-400" aria-hidden />
-              {feature}
-            </li>
-          ))}
-        </ul>
-        <a
-          href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`${copy.cta}: ${app.title[lang]}`)}`}
-          className="inline-flex items-center gap-2 rounded-lg border border-brand px-6 py-3 text-sm font-semibold text-brand hover:border-yellow-400 hover:bg-yellow-400 hover:text-black transition-colors"
-        >
-          {copy.cta}
-          <span aria-hidden>→</span>
-        </a>
+        {heading}
+        {details}
       </div>
     </article>
   );

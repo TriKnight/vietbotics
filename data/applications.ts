@@ -11,6 +11,8 @@ export interface Application {
   // Low-res copy for the hover previews on the small tiles
   preview: string;
   poster: string;
+  // Footage of the physical cell, shown side by side with the simulation
+  real?: { video: string; poster: string };
   title: Localized;
   description: Localized;
   features: Record<Lang, string[]>;
@@ -32,6 +34,10 @@ export const applications: Application[] = [
     video: `${VIDEO_DIR}/720p/1_bin_picking_1.5x.webm`,
     preview: `${VIDEO_DIR}/360p/1_bin_picking_1.5x.webm`,
     poster: `${VIDEO_DIR}/posters/1_bin_picking_1.5x.jpg`,
+    real: {
+      video: `${VIDEO_DIR}/720p/1_real_ur10e_bin_picking.webm`,
+      poster: `${VIDEO_DIR}/posters/1_real_ur10e_bin_picking.jpg`,
+    },
     title: { en: "Bin Picking", vn: "Gắp vật từ thùng" },
     description: {
       en: "A collaborative arm works in a compact cell, locating randomly placed parts with 3D vision and transferring them between bins without fixtures or manual teaching.",
@@ -40,6 +46,26 @@ export const applications: Application[] = [
     features: {
       en: ["3D Vision Localization", "Collision-free Advanced Motion Planning", "Zero-Fixture Setup", "Compact Footprint"],
       vn: ["Định vị bằng thị giác 3D", "Lập quỹ đạo tiên tiến không va chạm", "Không cần đồ gá", "Diện tích nhỏ gọn"],
+    },
+  },
+  {
+    id: "bin-picking-amr",
+    category: "material-handling",
+    video: `${VIDEO_DIR}/720p/3_UR_and_AMR.webm`,
+    preview: `${VIDEO_DIR}/360p/3_UR_and_AMR.webm`,
+    poster: `${VIDEO_DIR}/posters/3_UR_and_AMR.jpg`,
+    real: {
+      video: `${VIDEO_DIR}/720p/3_real_UR_AMR.webm`,
+      poster: `${VIDEO_DIR}/posters/3_real_UR_AMR.jpg`,
+    },
+    title: { en: "Picking with Automation Flow AMR — Pilot Project with Gradion", vn: "Gắp vật từ thùng kết hợp AMR" },
+    description: {
+      en: "A pilot project with Gradion demonstrating AI-powered bin picking integrated with autonomous material flow. A robot picks parts from bins while an AMR autonomously docks, collects finished bins, and delivers them to the next station. ",
+      vn: "Dự án kết hợp với Gradion, Robot tích hợp AI gắp chi tiết từ thùng tại trạm, trong khi AMR cập trạm, nhận thùng đã hoàn tất và vận chuyển đến trạm tiếp theo. Việc gắp và vận chuyển diễn ra liên tục mà không cần con người trung chuyển.",
+    },
+    features: {
+      en: ["3D Vision Bin Picking", "AMR Docking & Bin Transfer", "Station-to-Station Delivery", "Continuous Material Flow"],
+      vn: ["Gắp vật bằng thị giác 3D", "AMR cập trạm & chuyển thùng", "Vận chuyển giữa các trạm", "Dòng vật liệu liên tục"],
     },
   },
   {
@@ -56,22 +82,6 @@ export const applications: Application[] = [
     features: {
       en: ["Autonomous Mobile Base", "Conveyor-to-Pallet Transfer", "Configurable Pallet Patterns", "Multi-station Coverage"],
       vn: ["Đế di động tự hành", "Chuyển từ băng tải sang pallet", "Mẫu xếp pallet tùy chỉnh", "Phục vụ nhiều trạm"],
-    },
-  },
-  {
-    id: "bin-picking-amr",
-    category: "material-handling",
-    video: `${VIDEO_DIR}/720p/3_UR_and_AMR.webm`,
-    preview: `${VIDEO_DIR}/360p/3_UR_and_AMR.webm`,
-    poster: `${VIDEO_DIR}/posters/3_UR_and_AMR.jpg`,
-    title: { en: "Bin Picking with Automation Flow AMR", vn: "Gắp vật từ thùng kết hợp AMR" },
-    description: {
-      en: "A UR10e picks parts from bins in the cell while an AMR docks, collects the finished bins and delivers them to the next station. Picking and transport run as one continuous flow with no manual handoff.",
-      vn: "Robot UR10e gắp chi tiết từ thùng tại trạm, trong khi AMR cập trạm, nhận thùng đã hoàn tất và vận chuyển đến trạm tiếp theo. Việc gắp và vận chuyển diễn ra liên tục mà không cần con người trung chuyển.",
-    },
-    features: {
-      en: ["3D Vision Bin Picking", "AMR Docking & Bin Transfer", "Station-to-Station Delivery", "Continuous Material Flow"],
-      vn: ["Gắp vật bằng thị giác 3D", "AMR cập trạm & chuyển thùng", "Vận chuyển giữa các trạm", "Dòng vật liệu liên tục"],
     },
   },
   {

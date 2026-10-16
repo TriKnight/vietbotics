@@ -1,6 +1,7 @@
 import React from "react";
 import type { Lang } from "@/data/applications";
-import { CONTACT_EMAIL, heroCopy } from "@/data/home";
+import { heroCopy } from "@/data/home";
+import ContactButton from "./ContactButton";
 import SmartVideo from "./SmartVideo";
 
 const HeroBanner = ({ lang }: { lang: Lang }) => {
@@ -34,13 +35,14 @@ const HeroBanner = ({ lang }: { lang: Lang }) => {
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-          <a
-            href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(copy.primaryCta)}`}
+          <ContactButton
+            lang={lang}
+            topic={copy.primaryCta}
             className="inline-flex items-center justify-center gap-2 rounded-lg bg-yellow-400 px-7 py-3.5 text-sm font-semibold text-black hover:bg-yellow-300 transition-colors"
           >
             {copy.primaryCta}
             <span aria-hidden>→</span>
-          </a>
+          </ContactButton>
           <a
             href="#applications"
             className="inline-flex items-center justify-center rounded-lg border border-line/25 bg-surface/60 backdrop-blur px-7 py-3.5 text-sm font-semibold text-ink hover:border-line/50 hover:bg-surface/90 transition-colors"

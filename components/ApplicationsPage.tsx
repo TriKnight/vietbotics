@@ -1,8 +1,8 @@
 import React from "react";
 import type { Lang } from "@/data/applications";
 import { pageHeroCopy, pageStats, processCopy, processSteps } from "@/data/applicationsPage";
-import { CONTACT_EMAIL } from "@/data/home";
 import SiteNav from "./SiteNav";
+import ContactButton from "./ContactButton";
 import SectionHeader from "./SectionHeader";
 import DigitalTwinIntro from "./DigitalTwinIntro";
 import ApplicationCatalog from "./ApplicationCatalog";
@@ -22,13 +22,14 @@ const PageHero = ({ lang }: { lang: Lang }) => {
         <p className="mx-auto mt-4 max-w-3xl text-body text-base md:text-lg leading-relaxed">{copy.subheading}</p>
 
         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-3">
-          <a
-            href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(copy.primaryCta)}`}
+          <ContactButton
+            lang={lang}
+            topic={copy.primaryCta}
             className="inline-flex items-center justify-center gap-2 rounded-lg bg-yellow-400 px-7 py-3.5 text-sm font-semibold text-black hover:bg-yellow-300 transition-colors"
           >
             {copy.primaryCta}
             <span aria-hidden>→</span>
-          </a>
+          </ContactButton>
           <a
             href="#catalog"
             className="inline-flex items-center justify-center rounded-lg border border-line/25 px-7 py-3.5 text-sm font-semibold text-ink hover:border-line/50 transition-colors"
@@ -69,13 +70,14 @@ const CommissioningProcess = ({ lang }: { lang: Lang }) => {
       </ol>
 
       <div className="mt-12 flex flex-col items-center gap-3 text-center">
-        <a
-          href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(copy.cta)}`}
+        <ContactButton
+          lang={lang}
+          topic={copy.cta}
           className="inline-flex items-center justify-center gap-2 rounded-lg bg-yellow-400 px-7 py-3.5 text-sm font-semibold text-black hover:bg-yellow-300 transition-colors"
         >
           {copy.cta}
           <span aria-hidden>→</span>
-        </a>
+        </ContactButton>
         <p className="text-sm text-subtle">{copy.note}</p>
       </div>
     </section>

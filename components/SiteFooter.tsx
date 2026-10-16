@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "./Logo";
+import ContactButton from "./ContactButton";
 import type { Lang } from "@/data/applications";
 import { applications } from "@/data/applications";
 import { FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
@@ -25,13 +26,14 @@ const SiteFooter = ({ lang }: { lang: Lang }) => {
           </h2>
           <p className="text-body text-base md:text-lg">{copy.ctaBody}</p>
         </div>
-        <a
-          href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(copy.ctaButton)}`}
+        <ContactButton
+          lang={lang}
+          topic={copy.ctaButton}
           className="shrink-0 inline-flex items-center justify-center gap-2 rounded-lg bg-yellow-400 px-7 py-3.5 text-sm font-semibold text-black hover:bg-yellow-300 transition-colors"
         >
           {copy.ctaButton}
           <span aria-hidden>→</span>
-        </a>
+        </ContactButton>
       </div>
 
       <div className="grid grid-cols-1 gap-10 py-16 sm:grid-cols-2 lg:grid-cols-12">

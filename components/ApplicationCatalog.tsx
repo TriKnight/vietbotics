@@ -5,7 +5,7 @@ import SectionHeader from "./SectionHeader";
 import SmartVideo from "./SmartVideo";
 import { Application, CategoryId, Lang, applications, categories } from "@/data/applications";
 import { catalogCopy } from "@/data/applicationsPage";
-import { CONTACT_EMAIL } from "@/data/home";
+import ContactButton from "./ContactButton";
 
 const CatalogVideo = ({
   src,
@@ -54,13 +54,14 @@ const ApplicationRow = ({ app, lang, index }: { app: Application; lang: Lang; in
           </li>
         ))}
       </ul>
-      <a
-        href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`${copy.cta}: ${app.title[lang]}`)}`}
+      <ContactButton
+        lang={lang}
+        topic={`${copy.cta}: ${app.title[lang]}`}
         className="inline-flex items-center gap-2 rounded-lg border border-brand px-6 py-3 text-sm font-semibold text-brand hover:border-yellow-400 hover:bg-yellow-400 hover:text-black transition-colors"
       >
         {copy.cta}
         <span aria-hidden>→</span>
-      </a>
+      </ContactButton>
     </>
   );
   const sim = <CatalogVideo src={app.video} poster={app.poster} badge={copy.videoBadge} dot="bg-yellow-400" />;

@@ -11,7 +11,7 @@ import {
   applicationsCopy,
   categories,
 } from "@/data/applications";
-import { CONTACT_EMAIL } from "@/data/home";
+import ContactButton from "./ContactButton";
 
 const FeaturedApplication = ({ app, lang }: { app: Application; lang: Lang }) => {
   const copy = applicationsCopy[lang];
@@ -181,13 +181,14 @@ const Applications = ({ lang = "en" }: { lang?: Lang }) => {
           <h3 className="font-display text-2xl md:text-3xl font-semibold tracking-[-0.015em] text-ink mb-3">{copy.simTitle}</h3>
           <p className="text-body text-base md:text-lg">{copy.simBody}</p>
         </div>
-        <a
-          href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(copy.simCta)}`}
+        <ContactButton
+          lang={lang}
+          topic={copy.simCta}
           className="shrink-0 inline-flex items-center justify-center gap-2 rounded-lg border border-brand px-6 py-3 text-sm font-semibold text-brand hover:border-yellow-400 hover:bg-yellow-400 hover:text-black transition-colors"
         >
           {copy.simCta}
           <span aria-hidden>→</span>
-        </a>
+        </ContactButton>
       </div>
     </section>
   );

@@ -7,7 +7,8 @@ import { FiMoon, FiSun } from "react-icons/fi";
 import { cn } from "@/utils/cn";
 import Logo from "./Logo";
 import type { Lang } from "@/data/applications";
-import { CONTACT_EMAIL, heroCopy, localeHref, nav } from "@/data/home";
+import { heroCopy, localeHref, nav } from "@/data/home";
+import ContactButton from "./ContactButton";
 
 const LanguageSwitch = ({ lang }: { lang: Lang }) => {
   const router = useRouter();
@@ -91,12 +92,13 @@ const SiteNav = ({ lang }: { lang: Lang }) => {
         <div className="hidden lg:flex items-center gap-4">
           <ThemeToggle lang={lang} />
           <LanguageSwitch lang={lang} />
-          <a
-            href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(heroCopy[lang].primaryCta)}`}
+          <ContactButton
+            lang={lang}
+            topic={heroCopy[lang].primaryCta}
             className="rounded-lg bg-yellow-400 px-5 py-2.5 text-sm font-semibold text-black hover:bg-yellow-300 transition-colors"
           >
             {heroCopy[lang].primaryCta}
-          </a>
+          </ContactButton>
         </div>
 
         <div className="lg:hidden flex items-center gap-2">
@@ -135,13 +137,13 @@ const SiteNav = ({ lang }: { lang: Lang }) => {
           </nav>
           <div className="mt-5 flex items-center justify-between gap-4">
             <LanguageSwitch lang={lang} />
-            <a
-              href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(heroCopy[lang].primaryCta)}`}
-              onClick={() => setOpen(false)}
+            <ContactButton
+              lang={lang}
+              topic={heroCopy[lang].primaryCta}
               className="rounded-lg bg-yellow-400 px-5 py-2.5 text-sm font-semibold text-black"
             >
               {heroCopy[lang].primaryCta}
-            </a>
+            </ContactButton>
           </div>
         </div>
       )}

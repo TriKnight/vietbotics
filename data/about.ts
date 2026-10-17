@@ -36,7 +36,7 @@ export const aboutStats: { value: string; label: Localized }[] = [
   { value: "VGU", label: { en: "University spin-off", vn: "Doanh nghiệp spin-off từ đại học" } },
   { value: "Top 5", label: { en: "Qualcomm QVIC 2026 finalist", vn: "Chung kết Qualcomm QVIC 2026" } },
   { value: "Deep-Tech", label: { en: "Robotics & Physical AI", vn: "Robot & AI vật lý" } },
-  { value: "Germany· Vietnam", label: { en: "International perspective", vn: "Góc nhìn quốc tế" } },
+  { value: "Global", label: { en: "International Outlook", vn: "Góc nhìn quốc tế" } },
 ];
 
 export const aboutWhoWeAre: Record<Lang, { eyebrow: string; heading: string; body: string[]; missionLabel: string; mission: string }> = {
@@ -70,7 +70,6 @@ export const aboutResearch: Record<Lang, { eyebrow: string; heading: string; bod
     heading: "Bridging research and industry",
     body: [
       "Our team combines hands-on industrial robotics experience with academic research and engineering innovation. We work across the entire technology stack, from AI perception and real-time embedded computing to robot motion planning, simulation, and system integration.",
-      "Supported by interdisciplinary expertise in business administration and business development, we approach robotics not only as an engineering challenge but as a path toward commercially viable, scalable industrial solutions.",
       "Our development benefits from academic guidance and international perspectives connected with Germany, Belgium, and Vietnam, linking advanced research with the practical requirements of manufacturing, logistics, and other industrial environments.",
     ],
     expertiseLabel: "Multidisciplinary expertise",
@@ -81,7 +80,6 @@ export const aboutResearch: Record<Lang, { eyebrow: string; heading: string; bod
     heading: "Kết nối nghiên cứu và công nghiệp",
     body: [
       "Đội ngũ của chúng tôi kết hợp kinh nghiệm thực tế về robot công nghiệp với nghiên cứu học thuật và đổi mới kỹ thuật. Chúng tôi làm chủ toàn bộ công nghệ, từ nhận thức AI và tính toán nhúng thời gian thực đến hoạch định chuyển động robot, mô phỏng và tích hợp hệ thống.",
-      "Được hỗ trợ bởi chuyên môn liên ngành về quản trị và phát triển kinh doanh, chúng tôi tiếp cận robot không chỉ như một bài toán kỹ thuật mà còn là con đường dẫn đến các giải pháp công nghiệp khả thi về thương mại và dễ mở rộng.",
       "Quá trình phát triển được dẫn dắt bởi giới học thuật cùng góc nhìn quốc tế từ Đức, Bỉ và Việt Nam, giúp gắn kết nghiên cứu tiên tiến với yêu cầu thực tế của sản xuất, logistics và các môi trường công nghiệp khác.",
     ],
     expertiseLabel: "Chuyên môn liên ngành",
@@ -160,7 +158,7 @@ export const aboutAward: Record<
     heading: "QVIC 2026 Innovation Award winner",
     award: "Qualcomm Vietnam Innovation Challenge 2026",
     body: [
-      "In 2026, OpenMind Robotics was selected among the Top 5 finalists of the Qualcomm Vietnam Innovation Challenge (QVIC 2026) and received the Innovation Award, accompanied by a US$15,000 prize, recognizing our work at the intersection of robotics, artificial intelligence, and industrial automation.",
+      "In 2026, OpenMind Robotics was selected among the Top 5 finalists of the Qualcomm Vietnam Innovation Challenge (QVIC 2026) and received the Innovation Award, recognizing our work at the Physical AI intersection.",
       "We were also the only university spin-off among the five finalists, highlighting our commitment to transforming university research into commercially viable technology.",
     ],
     quote:
@@ -173,7 +171,7 @@ export const aboutAward: Record<
     heading: "Giải Đổi mới sáng tạo QVIC 2026",
     award: "Qualcomm Vietnam Innovation Challenge 2026",
     body: [
-      "Năm 2026, OpenMind Robotics lọt Top 5 chung kết Qualcomm Vietnam Innovation Challenge (QVIC 2026) và nhận Giải Đổi mới sáng tạo trị giá 15.000 USD, ghi nhận tiềm năng của chúng tôi ở giao điểm giữa robot, trí tuệ nhân tạo và tự động hóa công nghiệp.",
+      "Năm 2026, OpenMind Robotics lọt Top 5 chung kết Qualcomm Vietnam Innovation Challenge (QVIC 2026) và nhận Giải Đổi mới sáng tạo trị giá 15.000 USD, ghi nhận tiềm năng của chúng tôi ở Physical AI.",
       "OpenMind Robotics cũng là doanh nghiệp spin-off từ đại học duy nhất trong năm đội chung kết, khẳng định cam kết biến nghiên cứu đại học thành công nghệ có giá trị thương mại.",
     ],
     quote:

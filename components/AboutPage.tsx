@@ -7,7 +7,7 @@ import {
   AWARD_NEWS_SLUG,
   aboutAward,
   aboutCollaboration,
-  aboutDeployment,
+  // aboutDeployment,
   aboutHero,
   aboutResearch,
   aboutStats,
@@ -16,8 +16,8 @@ import {
   aboutVision,
   aboutWhoWeAre,
   collaborationAreas,
-  deploymentPrinciples,
-  deploymentSteps,
+  // deploymentPrinciples,
+  // deploymentSteps,
   expertise,
 } from "@/data/about";
 import SiteNav from "./SiteNav";
@@ -98,78 +98,6 @@ const WhoWeAre = ({ lang }: { lang: Lang }) => {
   );
 };
 
-const Research = ({ lang }: { lang: Lang }) => {
-  const copy = aboutResearch[lang];
-
-  return (
-    <section className="py-16 md:py-20">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-        <figure className="order-last lg:order-first">
-          <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-line/10 bg-line/5">
-            <Image
-              src="/about-us/roboticslab-vgu.png"
-              alt={copy.imageCaption}
-              fill
-              sizes="(min-width: 1024px) 600px, 100vw"
-              className="object-cover"
-            />
-          </div>
-          <figcaption className="mt-3 text-sm text-subtle">{copy.imageCaption}</figcaption>
-        </figure>
-
-        <div>
-          <Eyebrow>{copy.eyebrow}</Eyebrow>
-          <h2 className="font-display text-3xl sm:text-4xl font-semibold tracking-[-0.02em] text-heading-gradient pb-2">{copy.heading}</h2>
-          {copy.body.map((p) => (
-            <p key={p} className="mt-5 text-body leading-relaxed">{p}</p>
-          ))}
-          <p className="mt-8 text-sm font-semibold text-ink">{copy.expertiseLabel}</p>
-          <ul className="mt-3 flex flex-wrap gap-2">
-            {expertise.map((item) => (
-              <li key={item.en} className="rounded-full border border-line/15 bg-surface px-3.5 py-1.5 text-sm text-ink/80">
-                {item[lang]}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const Deployment = ({ lang }: { lang: Lang }) => {
-  const copy = aboutDeployment[lang];
-
-  return (
-    <section className="py-16 md:py-20">
-      <SectionHeader eyebrow={copy.eyebrow} heading={copy.heading} subheading={copy.subheading} />
-
-      <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {deploymentSteps.map((step, i) => (
-          <li key={step.title.en} className="relative rounded-2xl border border-line/10 bg-surface p-6">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-cta/10 dark:bg-brand/10 font-display text-sm font-semibold text-cta dark:text-brand">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <h3 className="mt-5 font-display text-lg font-semibold text-ink">{step.title[lang]}</h3>
-            <p className="mt-2 text-sm text-body leading-relaxed">{step.body[lang]}</p>
-          </li>
-        ))}
-      </ol>
-
-      <ul className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-3">
-        {deploymentPrinciples.map((principle, i) => {
-          const Icon = principleIcons[i];
-          return (
-            <li key={principle.en} className="flex items-center gap-2.5 text-sm font-medium text-ink/80">
-              <Icon className="text-cta dark:text-brand" size={16} aria-hidden />
-              {principle[lang]}
-            </li>
-          );
-        })}
-      </ul>
-    </section>
-  );
-};
 
 const Award = ({ lang }: { lang: Lang }) => {
   const copy = aboutAward[lang];
@@ -222,6 +150,79 @@ const Award = ({ lang }: { lang: Lang }) => {
     </section>
   );
 };
+
+const Research = ({ lang }: { lang: Lang }) => {
+  const copy = aboutResearch[lang];
+
+  return (
+    <section className="py-16 md:py-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <figure className="order-last lg:order-first">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-line/10 bg-line/5">
+            <Image
+              src="/about-us/roboticslab-vgu.png"
+              alt={copy.imageCaption}
+              fill
+              sizes="(min-width: 1024px) 600px, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <figcaption className="mt-3 text-sm text-subtle">{copy.imageCaption}</figcaption>
+        </figure>
+
+        <div>
+          <Eyebrow>{copy.eyebrow}</Eyebrow>
+          <h2 className="font-display text-3xl sm:text-4xl font-semibold tracking-[-0.02em] text-heading-gradient pb-2">{copy.heading}</h2>
+          {copy.body.map((p) => (
+            <p key={p} className="mt-5 text-body leading-relaxed">{p}</p>
+          ))}
+          <p className="mt-8 text-sm font-semibold text-ink">{copy.expertiseLabel}</p>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {expertise.map((item) => (
+              <li key={item.en} className="rounded-full border border-line/15 bg-surface px-3.5 py-1.5 text-sm text-ink/80">
+                {item[lang]}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// const Deployment = ({ lang }: { lang: Lang }) => {
+//   const copy = aboutDeployment[lang];
+
+//   return (
+//     <section className="py-16 md:py-20">
+//       <SectionHeader eyebrow={copy.eyebrow} heading={copy.heading} subheading={copy.subheading} />
+
+//       <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+//         {deploymentSteps.map((step, i) => (
+//           <li key={step.title.en} className="relative rounded-2xl border border-line/10 bg-surface p-6">
+//             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-cta/10 dark:bg-brand/10 font-display text-sm font-semibold text-cta dark:text-brand">
+//               {String(i + 1).padStart(2, "0")}
+//             </span>
+//             <h3 className="mt-5 font-display text-lg font-semibold text-ink">{step.title[lang]}</h3>
+//             <p className="mt-2 text-sm text-body leading-relaxed">{step.body[lang]}</p>
+//           </li>
+//         ))}
+//       </ol>
+
+//       <ul className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-3">
+//         {deploymentPrinciples.map((principle, i) => {
+//           const Icon = principleIcons[i];
+//           return (
+//             <li key={principle.en} className="flex items-center gap-2.5 text-sm font-medium text-ink/80">
+//               <Icon className="text-cta dark:text-brand" size={16} aria-hidden />
+//               {principle[lang]}
+//             </li>
+//           );
+//         })}
+//       </ul>
+//     </section>
+//   );
+// };
 
 const Technologies = ({ lang }: { lang: Lang }) => {
   const copy = aboutTechnologyCopy[lang];
@@ -323,9 +324,10 @@ const AboutPage = ({ lang }: { lang: Lang }) => (
       <SiteNav lang={lang} />
       <Hero lang={lang} />
       <WhoWeAre lang={lang} />
-      <Research lang={lang} />
-      <Deployment lang={lang} />
       <Award lang={lang} />
+      <Research lang={lang} />
+      {/* <Deployment lang={lang} /> */}
+    
       <Technologies lang={lang} />
       <Collaboration lang={lang} />
       <Vision lang={lang} />

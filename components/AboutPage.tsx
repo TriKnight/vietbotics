@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { FiActivity, FiCheck, FiCpu, FiRefreshCw } from "react-icons/fi";
+import { FiCheck } from "react-icons/fi";
+// import { FiActivity, FiCpu, FiRefreshCw } from "react-icons/fi";
 import type { Lang } from "@/data/applications";
 import { localeHref } from "@/data/home";
 import {
@@ -25,7 +26,7 @@ import SiteFooter from "./SiteFooter";
 import SectionHeader from "./SectionHeader";
 import ContactButton from "./ContactButton";
 
-const principleIcons = [FiActivity, FiCpu, FiRefreshCw];
+// const principleIcons = [FiActivity, FiCpu, FiRefreshCw];
 
 const Eyebrow = ({ children }: { children: React.ReactNode }) => (
   <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-gray-700 dark:text-brand mb-4">{children}</p>

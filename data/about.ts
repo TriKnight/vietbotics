@@ -220,7 +220,7 @@ export const aboutTechnologies: { name: string; subtitle: Localized; body: Local
     image: "/picking.png",
   },
   {
-    name: "OM-Twin",
+    name: "OM-Twin™",
     subtitle: { en: "Digital twin & virtual commissioning", vn: "Digital twin & chạy thử ảo" },
     body: {
       en: "Combines virtual commissioning, 3D simulation, robot programming, and physical system integration to validate automation workflows before deployment and bridge the gap between simulation and real-world operation.",

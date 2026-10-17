@@ -34,7 +34,7 @@ export const aboutHero: Record<Lang, { eyebrow: string; heading: string; lead: s
 
 export const aboutStats: { value: string; label: Localized }[] = [
   { value: "VGU", label: { en: "University spin-off", vn: "Doanh nghiệp spin-off từ đại học" } },
-  { value: "Top 5", label: { en: "Qualcomm QVIC 2026 finalist", vn: "Chung kết Qualcomm QVIC 2026" } },
+  { value: "Award-Winning", label: { en: "Qualcomm Innovation Award & Grant Recipient", vn: "Được ươm tạo và tài trợ đổi mới sáng tạo từ tập đoàn Qualcomm" } },
   { value: "Deep-Tech", label: { en: "Robotics & Physical AI", vn: "Robot & AI vật lý" } },
   { value: "Global", label: { en: "International Outlook", vn: "Góc nhìn quốc tế" } },
 ];

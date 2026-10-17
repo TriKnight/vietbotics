@@ -45,7 +45,7 @@ export const aboutWhoWeAre: Record<Lang, { eyebrow: string; heading: string; bod
     heading: "Embodied AI for industrial robotics",
     body: [
       "We are a deep-tech robotics company and a spin-off from Vietnamese-German University (VGU), focused on translating advanced research into practical industrial solutions.",
-      "By combining Physical AI, 3D computer vision, robot intelligence, embedded systems, and physics-based digital twins, we help manufacturers automate complex tasks that traditionally require extensive manual programming and specialized tooling.",
+      "We combine Physical AI, 3D vision, robot intelligence, and digital twins to automate complex industrial tasks with greater flexibility and autonomy.",
     ],
     missionLabel: "Our mission",
     mission:

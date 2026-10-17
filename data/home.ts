@@ -225,7 +225,7 @@ export const footerCopy: Record<
     applications: "Applications",
     contact: "Contact",
     addresses: [
-      { label: "Office", value: "No. 23, Shophouse, Oasis City, Quarter 4, Thoi Hoa Ward, Ho Chi Minh City, Vietnam" },
+      { label: "Office", value: "No. 23, Shophouse, Oasis City, Thoi An Quarter, Thoi Hoa Ward, Ho Chi Minh City, Vietnam" },
       {
         label: "Research Hub",
         value: "Robotics Lab, Vietnamese-German University, Ring Road 4, Thoi An Quarter, Thoi Hoa Ward, Ho Chi Minh City, Vietnam",

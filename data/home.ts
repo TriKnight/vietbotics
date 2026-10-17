@@ -16,7 +16,7 @@ export const nav: { href: string; label: Localized; form?: boolean }[] = [
   { href: "#why_us", label: { en: "Why Us", vn: "Ưu điểm" } },
   { href: "#partners", label: { en: "Partners", vn: "Đối tác" } },
   { href: "/news", label: { en: "News", vn: "Tin tức" } },
-  { href: "#contact_us", label: { en: "Contact", vn: "Liên hệ" }, form: true },
+  { href: "/about", label: { en: "About Us", vn: "Về chúng tôi" } },
 ];
 
 export const localeHref = (lang: Lang, href: string) => `/${lang}${href}`;
@@ -212,7 +212,7 @@ export const footerCopy: Record<
     company: string;
     applications: string;
     contact: string;
-    address: string;
+    addresses: { label: string; value: string }[];
     rights: string;
   }
 > = {
@@ -224,7 +224,13 @@ export const footerCopy: Record<
     company: "Company",
     applications: "Applications",
     contact: "Contact",
-    address: "No. 23, Shophouse, Oasis City, Quarter 4, Thoi Hoa Ward, Ho Chi Minh City, Vietnam",
+    addresses: [
+      { label: "Office", value: "No. 23, Shophouse, Oasis City, Quarter 4, Thoi Hoa Ward, Ho Chi Minh City, Vietnam" },
+      {
+        label: "Research Hub",
+        value: "Robotics Lab, Vietnamese-German University, Ring Road 4, Thoi An Quarter, Thoi Hoa Ward, Ho Chi Minh City, Vietnam",
+      },
+    ],
     rights: "All rights reserved.",
   },
   vn: {
@@ -235,7 +241,13 @@ export const footerCopy: Record<
     company: "Công ty",
     applications: "Ứng dụng",
     contact: "Liên hệ",
-    address: "Đường D10S, Oasis Riverside, Khu phố 4, P. Thới Hòa, TP. Hồ Chí Minh, Việt Nam",
+    addresses: [
+      { label: "Văn phòng", value: "Đường D10S, Oasis Riverside, Khu phố 4, P. Thới Hòa, TP. Hồ Chí Minh, Việt Nam" },
+      {
+        label: "Trung tâm nghiên cứu",
+        value: "Phòng thí nghiệm Robot, Trường Đại học Việt Đức, Đường Vành đai 4, Khu phố Thới An, P. Thới Hòa, TP. Hồ Chí Minh, Việt Nam",
+      },
+    ],
     rights: "Bảo lưu mọi quyền.",
   },
 };

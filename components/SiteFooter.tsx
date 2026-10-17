@@ -85,7 +85,12 @@ const SiteFooter = ({ lang }: { lang: Lang }) => {
         <div className="lg:col-span-3">
           <h3 className="text-xs uppercase tracking-[0.2em] text-subtle mb-4">{copy.contact}</h3>
           <address className="not-italic space-y-3 text-ink/80">
-            <p className="leading-relaxed">{copy.address}</p>
+            {copy.addresses.map(({ label, value }) => (
+              <p key={label} className="leading-relaxed">
+                <span className="block text-xs font-semibold uppercase tracking-[0.15em] text-subtle">{label}</span>
+                {value}
+              </p>
+            ))}
             <p>
               <a href={`tel:${CONTACT_PHONE.replace(/[^\d+]/g, "")}`} className="hover:text-brand transition-colors">
                 {CONTACT_PHONE}

@@ -6,7 +6,9 @@
       "Bash(sed -i 's|tracking-\\\\[0.25em\\\\] text-brand dark:text-yellow-300|tracking-[0.25em] text-gray-700 dark:text-yellow-300|' components/HeroBanner.tsx)",
       "Bash(sed -i 's|<span className=\"text-brand\">{newsCategories|<span className=\"text-gray-700 dark:text-brand\">{newsCategories|' components/NewsCard.tsx)",
       "Bash(git diff *)",
-      "Bash(node /tmp/claude-1000/-home-openmind-openmind-vietbotics/e37a1947-0899-4ac7-b42c-50ab0abd9403/scratchpad/imgtool/hero.js /tmp/claude-1000/-home-openmind-openmind-vietbotics/e37a1947-0899-4ac7-b42c-50ab0abd9403/scratchpad 1280 en)"
+      "Bash(node /tmp/claude-1000/-home-openmind-openmind-vietbotics/e37a1947-0899-4ac7-b42c-50ab0abd9403/scratchpad/imgtool/hero.js /tmp/claude-1000/-home-openmind-openmind-vietbotics/e37a1947-0899-4ac7-b42c-50ab0abd9403/scratchpad 1280 en)",
+      "Bash(python3 -c ' *)",
+      "Bash(file public/about-us/*)"
     ]
   }
 }
